@@ -1,0 +1,6 @@
+INCLUDEPATH += $${PWD}/include \
+               $${PWD}/include/log4qt \
+               $${PWD}/src \
+               $${PWD}/src/log4qt
+
+LIBS += -L$${PWD}/lib -llog4qt

@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+        <title>Log4Qt个人整理的配置文件_51CTO博客_log4qt</title>
+    <meta name="keywords" content="Log4Qt个人整理的配置文件,博客,51CTO博客">
+<meta name="description" content="Log4Qt个人整理的配置文件，日志说明日志格式自动填充对齐自动捕获QtMessages每日生成一份日志每日单独生成一份Warning以上日志每次启动程序，生成一份">    <meta name="applicable-device" content="pc">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="msvalidate.01" content="91C5324FE68C0A46FA65F3FEC225EA65">
+    
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="preconnect" href="https://cdn.51cto.com/">
+<link rel="dns-prefetch" href="https://cdn.51cto.com/">
+<link rel="preconnect" href="https://static2.51cto.com/edu/">
+<link rel="dns-prefetch" href="https://static2.51cto.com/edu/">
+<link rel="preconnect" href="https://s2.51cto.com/">
+<link rel="dns-prefetch" href="https://s2.51cto.com/">
+<link rel="preload" as="image" href="https://s2.51cto.com/images/100/base/empty.png?x-oss-process=image/format,webp/ignore-error,1">
+    <link rel="canonical" href="https://blog.51cto.com/xiaohaiwa/5379141">
+    <link type="favicon" rel="shortcut icon" href="https://blog.51cto.com/favicon.ico">
+        <script src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/push.js.下载"></script><script src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/hm.js.下载"></script><script async="" src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/sensorsdata.min.js.下载"></script><script src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/antidomxss_v702.js.下载"></script><script src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/interfaceacting230515.js.下载"></script><script type="application/ld+json">{"@context":"https://ziyuan.baidu.com/contexts/cambrian.jsonld","@id":"https://blog.51cto.com/xiaohaiwa/5379141","appid":"1576672126670053","title":"Log4Qt个人整理的配置文件_51CTO博客_log4qt","images":[],"description":"日志说明日志格式自动填充对齐自动捕获QtMessages每日生成一份日志每日单独生成一份Warning以上日志每次启动程序，生成一份","pubDate":"2022-06-13T17:14:24","upDate":"2022-06-13T17:14:24"}</script>
+                                <link href="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/pc_detailinline.min.css" rel="stylesheet">             <style type="text/css">#waf_nc_block{position:fixed;_position:absolute;width:100%;height:100%;top:0;bottom:0;left:0;z-index:99999}.waf-nc-mask{background:#000;opacity:.5;filter:alpha(opacity=50);width:100%;height:100%}.waf-nc-wrapper{width:348px;height:236px;text-align:center;position:absolute;top:50%;left:50%;margin-top:-160px;margin-left:-200px;margin-bottom:16px;background:#fff;box-shadow:0 0 10px 0 rgba(0,0,0,0.15)}.waf-nc-title{margin-top:28px;font-size:24px;font-weight:500;color:#181818;letter-spacing:1.71px;text-align:center}.waf-nc-description{margin-top:24px;font-size:14px;color:#666;text-align:center}.waf-nc-traceid-class{margin-top:8px;font-size:12px;color:#999;text-align:center}#nocaptcha{margin-left:24px;margin-top:14px}.nc_bg{background:#fff3ea!important}.btn_slide{background:#ff6a00!important;border:0!important;color:#fff!important;width:48px!important;height:48px!important;font-size:30px;font-weight:900!important;line-height:48px!important}.btn_ok{background:#ff6a00!important;border:0!important;color:#fff!important;width:48px!important;height:48px!important;font-size:30px;font-weight:900!important;line-height:48px!important}.nc_scale{background:rgba(241,241,242,1)!important;height:48px!important}.nc-lang-cnt{height:48px!important;margin-left:10px!important;line-height:48px!important;font-size:14px!important}</style><script src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/awsc.js.下载"></script><link rel="stylesheet" href="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/pc_detailinline.min.css"><link rel="stylesheet" href="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/pc_detail.min.css"><script charset="utf-8" src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/jquery-2.2.4.min.js.下载"></script><script charset="utf-8" src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/interaction_iframe.js.下载"></script><script charset="utf-8" src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/swiper-4.5.3.js.下载"></script><script charset="utf-8" src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/svga.min.js.下载"></script><script charset="utf-8" src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/pc_base.min.js.下载"></script><script charset="utf-8" src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/mprime.js.下载"></script><script charset="utf-8" src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/pc_detail.min.js.下载"></script><link href="https://static2.51cto.com/edu/blog/blog-static/static/css/pc_base.min.css?v=449f0f91d6" rel="prefetch"><link href="https://static2.51cto.com/edu/blog/blog-static/static/css/pc_newIndexinline.min.css?v=56c90a8906" rel="prefetch"><link href="https://static2.51cto.com/edu/blog/blog-static/static/css/pc_newListinline.min.css?v=a1051ef99f" rel="prefetch"><link href="https://static2.51cto.com/edu/blog/blog-static/static/css/pc_topicdetailinline.min.css?v=9d49bae709" rel="prefetch"><link href="https://static2.51cto.com/edu/blog/blog-static/markdown/dist/js/main.js?v=12e5a1a2fe" rel="prefetch"><link href="https://static2.51cto.com/edu/blog/blog-static/static/js/pc_list_js.min.js?v=8973c321c1" rel="prefetch"><link href="https://static2.51cto.com/edu/blog/blog-static/static/js/pc_topic_static.min.js?v=8533cb9e02" rel="prefetch"><link href="https://static2.51cto.com/edu/blog/blog-static/static/js/pc_blogger_js.min.js?v=c7a4e3d003" rel="prefetch"></head>
+<body class="webp">
+<img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/share_default.jpeg" border="0" style="width:0; height:0; position:absolute;">
+<div class="Content-box" style="min-height: 654px;">
+    <div class="Content detail-content-new">
+    <!--关注-->
+    <div class="fixtitle" style="display: block;">
+        <div class="clearfix Page">
+            <h3 class="fl title">Log4Qt个人整理的配置文件</h3>
+            <div class="messbox fr">
+                                                            <a id="checkFollow1_15228921" class="follow-1 checkFollow on">关注</a>
+                                                    <a href="https://blog.51cto.com/xiaohaiwa" class="name" target="_blank" title="我不是萧海哇">我不是萧海哇</a>
+                <strong>
+                    <a href="https://blog.51cto.com/xiaohaiwa" class="avatar" target="_blank">
+                        <img class="is-vip-img is-vip-img-4" data-uid="15228921" src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/a72c1ea05bac8db54be1abfb46a5f2a2.jpeg">
+                    </a>
+                </strong>
+            </div>
+        </div>
+    </div>
+    <!--大模块引入-->
+    <div class="clearfix Page" id="page_center" style="position:relative;">
+                <article class="detail-content-left">
+    <div class="common-section common-spacing mb30 article-detail">
+    <div class="title">
+        <h1>Log4Qt个人整理的配置文件</h1>
+         
+                <span class="reprint">转载</span>
+        
+    </div>
+    <div class="messbox">
+        <p class="clearfix mess-line1">
+            <a class="fl" href="https://blog.51cto.com/xiaohaiwa" rel="nofollow">我不是萧海哇</a>
+            <time class="fl" pubdate="2022-06-13 17:14:24">2022-06-13 17:14:24</time>
+                            <span class="fl">博主文章分类：<a href="https://blog.51cto.com/xiaohaiwa/category41" target="_blank">Qt编程</a></span>
+                                </p>
+        <p class="clearfix mess-tag">
+                            <strong class="fl">
+                    <em class="fl">文章标签</em>
+                                            <a href="https://blog.51cto.com/topic/qt.html" class="fl shence_tag" target="_blank">qt</a>
+                                            <a href="https://blog.51cto.com/topic/kaifayuyan.html" class="fl shence_tag" target="_blank">开发语言</a>
+                                            <a href="https://blog.51cto.com/topic/apache.html" class="fl shence_tag" target="_blank">apache</a>
+                                            <a href="https://blog.51cto.com/search/result?q=%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%83%E5%B1%80" class="fl shence_tag" target="_blank" rel="nofollow">自定义布局</a>
+                                            <a href="https://blog.51cto.com/topic/genmulu.html" class="fl shence_tag" target="_blank">根目录</a>
+                                    </strong>
+                                        <strong class="fl">
+                    <em class="fl">文章分类</em>
+                                                                                                                    <a href="https://blog.51cto.com/nav/program" class="fl shence_cate" target="_blank" rel="nofollow">后端开发</a>
+                                                            </strong>
+                                <strong class="fl"><em class="fl">阅读数</em><b class="fl">207</b></strong></p>
+    </div>
+                <div class="article-content-wrap">
+                    <div class="artical-content-bak main-content editor-side-new">
+                <div class="con editor-preview-side" id="result" data-version="0"><div class="container am-engine" id="container" data-v-25845608="" data-element="root"><p>日志说明</p><ol><li>日志格式自动填充对齐</li><li>自动捕获QtMessages</li><li>每日生成一份日志</li><li>每日单独生成一份Warning以上日志</li><li>每次启动程序，生成一份日志</li><li>记录最近20次启动的日志</li></ol><p>配置文件</p><div data-card-editable="false" data-syntax="cpp"><div class="data-codeblock-content" style="border: 1px solid rgb(232, 232, 232); color: rgb(38, 38, 38); margin: 0px; padding: 0px; background: rgb(249, 249, 249);"><div class="CodeMirror" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"><div class="hljs-cto"><div class="operation_box"><button data-clipboard-target="#code_id_0" class="copy_btn  copy0">复制</button> <a title="一键下载全文代码" class="downloadCode"><i class="iconblog blogimport  "></i></a> </div><pre class="cm-s-default has-pre-numbering" style="color: rgb(89, 89, 89); margin: 0px; padding: 15px 0px 17px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"><div class="language-"><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">#设置储存log文件的根目录</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">logpath</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span>.<span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">/</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">Logs</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 配置日志的输出格式: %r耗费毫秒数 %p日志的优先级 %t线程名 %C所属类名通常为全类名 %L代码中的行号 %x线程相关联的NDC %m日志 %n换行</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">logConversionPattern</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span>[<span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">%</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">d</span>{<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">yyyy</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">-</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">MM</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">-</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">dd</span> <span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">HH</span>:<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">mm</span>:<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">ss</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">zzz</span>}][<span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">%-</span><span class="cm-number" style="color: rgb(0, 92, 197); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">5p</span>][<span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">%-</span><span class="cm-number" style="color: rgb(0, 92, 197); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">20t</span>] <span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">&gt;&gt;</span> <span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">%</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">m</span> <span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">%</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">n</span><br> <br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">reset</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-atom" style="color: rgb(153, 0, 85); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">true</span><br> <br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">#设置是否监听QDebug输出的字符串</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">handleQtMessages</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-atom" style="color: rgb(153, 0, 85); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">true</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">#在运行中，是否监视此文件配置的变化</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">watchThisFile</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-atom" style="color: rgb(153, 0, 85); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">false</span><br> <br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">#设置根Logger的输出log等级为All</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># log4j.rootLogger日志输出类别和级别：只输出不低于该级别的日志信息  DEBUG &lt; INFO &lt; WARN &lt; ERROR &lt; FATAL</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">#设置Log输出的几种输出源（appender）：console, daily, rolling</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">rootLogger</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">ALL</span>, <span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">console</span>, <span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">daily</span>, <span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">dailyWarn</span>, <span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">rolling</span><br> <br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">#############</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 输出到控制台</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">#############</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">###############################################################################################</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 配置INFO CONSOLE输出到控制台</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">console</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">org</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">apache</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">ConsoleAppender</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 输出</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">console</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">Target</span> <span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span> <span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">System</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">out</span>  <br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 配置CONSOLE设置为自定义布局模式</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">console</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">layout</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">org</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">apache</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">PatternLayout</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 配置logfile为自定义布局模式</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">console</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">layout</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">ConversionPattern</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">$</span>{<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">logConversionPattern</span>}<br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">###############################################################################################</span><br> <br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">################</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 输出到日志文件中</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">################</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">###############################################################################################</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 配置logfile输出到文件中 每日产生文件</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">daily</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">org</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">apache</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">DailyFileAppender</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 输出文件位置此为项目根目录下的logs文件夹中</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">daily</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">file</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">$</span>{<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">logpath</span>}<span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">/</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">Log</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 日期格式</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">daily</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">datePattern</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-string" style="color: rgb(102, 153, 0); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">'.'</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">yyyy</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">-</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">MM</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">-</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">dd</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">#true表示消息增加到指定文件中，false则将消息覆盖指定的文件内容，默认值是false</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">daily</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appendFile</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-atom" style="color: rgb(153, 0, 85); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">true</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 立即输出</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">daily</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">immediateFlush</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-atom" style="color: rgb(153, 0, 85); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">false</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 输入日志等级</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">daily</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">Threshold</span> <span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span> <span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">DEBUG</span>  <br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 设置保留天数</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">daily</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">keepDays</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-number" style="color: rgb(0, 92, 197); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">30</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 配置logfile为自定义布局模式</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">daily</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">layout</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">org</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">apache</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">PatternLayout</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">daily</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">layout</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">ConversionPattern</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">$</span>{<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">logConversionPattern</span>}<br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">###############################################################################################</span><br> <br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">###############################################################################################</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 配置logfile输出到文件中 每日产生文件</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">dailyWarn</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">org</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">apache</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">DailyFileAppender</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 输出文件位置此为项目根目录下的logs文件夹中</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">dailyWarn</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">file</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">$</span>{<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">logpath</span>}<span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">/</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">LogWarn</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 日期格式</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">dailyWarn</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">datePattern</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-string" style="color: rgb(102, 153, 0); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">'.'</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">yyyy</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">-</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">MM</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">-</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">dd</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">#true表示消息增加到指定文件中，false则将消息覆盖指定的文件内容，默认值是false</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">dailyWarn</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appendFile</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-atom" style="color: rgb(153, 0, 85); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">true</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 立即输出</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">dailyWarn</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">immediateFlush</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-atom" style="color: rgb(153, 0, 85); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">false</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 输入日志等级</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">dailyWarn</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">Threshold</span> <span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span> <span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">WARN</span>  <br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 设置保留天数</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">dailyWarn</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">keepDays</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-number" style="color: rgb(0, 92, 197); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">30</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 配置logfile为自定义布局模式</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">dailyWarn</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">layout</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">org</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">apache</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">PatternLayout</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">dailyWarn</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">layout</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">ConversionPattern</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">$</span>{<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">logConversionPattern</span>}<br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">###############################################################################################</span><br> <br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">###############################################################################################</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 配置logfile输出到文件中 文件大小到达指定尺寸的时候产生新的日志文件</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">rolling</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">org</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">apache</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">RollingFileAppender</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 输出文件位置此为项目根目录下的logs文件夹中</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">rolling</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">file</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">$</span>{<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">logpath</span>}<span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">/</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">LogRolling</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">#true表示消息增加到指定文件中，false则将消息覆盖指定的文件内容，默认值是false</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">rolling</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appendFile</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-atom" style="color: rgb(153, 0, 85); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">false</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 立即输出</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">rolling</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">immediateFlush</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-atom" style="color: rgb(153, 0, 85); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">true</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 后缀可以是KB,MB,GB达到该大小后创建新的日志文件</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">rolling</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">MaxFileSize</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-number" style="color: rgb(0, 92, 197); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">50MB</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 设置滚定文件的最大值5</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">rolling</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">MaxBackupIndex</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-number" style="color: rgb(0, 92, 197); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">20</span><br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"># 配置logfile为自定义布局模式</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">rolling</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">layout</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">org</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">apache</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">PatternLayout</span><br><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">log4j</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">appender</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">rolling</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">layout</span>.<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">ConversionPattern</span><span class="cm-operator" style="color: rgb(215, 58, 73); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">=</span><span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">$</span>{<span class="cm-variable" style="color: rgb(89, 89, 89); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">logConversionPattern</span>}<br><span class="cm-meta" style="color: rgb(31, 127, 154); margin: 0px; padding: 0px; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);">###############################################################################################</span></div><ul class="pre-numbering" id="code_id_0" style="display: block;"><li>1.</li><li>2.</li><li>3.</li><li>4.</li><li>5.</li><li>6.</li><li>7.</li><li>8.</li><li>9.</li><li>10.</li><li>11.</li><li>12.</li><li>13.</li><li>14.</li><li>15.</li><li>16.</li><li>17.</li><li>18.</li><li>19.</li><li>20.</li><li>21.</li><li>22.</li><li>23.</li><li>24.</li><li>25.</li><li>26.</li><li>27.</li><li>28.</li><li>29.</li><li>30.</li><li>31.</li><li>32.</li><li>33.</li><li>34.</li><li>35.</li><li>36.</li><li>37.</li><li>38.</li><li>39.</li><li>40.</li><li>41.</li><li>42.</li><li>43.</li><li>44.</li><li>45.</li><li>46.</li><li>47.</li><li>48.</li><li>49.</li><li>50.</li><li>51.</li><li>52.</li><li>53.</li><li>54.</li><li>55.</li><li>56.</li><li>57.</li><li>58.</li><li>59.</li><li>60.</li><li>61.</li><li>62.</li><li>63.</li><li>64.</li><li>65.</li><li>66.</li><li>67.</li><li>68.</li><li>69.</li><li>70.</li><li>71.</li><li>72.</li><li>73.</li><li>74.</li><li>75.</li><li>76.</li><li>77.</li><li>78.</li><li>79.</li><li>80.</li><li>81.</li><li>82.</li><li>83.</li><li>84.</li><li>85.</li><li>86.</li><li>87.</li><li>88.</li><li>89.</li><li>90.</li><li>91.</li></ul></pre></div></div></div></div><p>                
+                <br></p></div></div>
+            </div>
+        
+        <div id="asideoffset"></div>
+        <div class="clearfix label-list">
+
+            <!--            <span>本文包含：</span>-->
+            <!--          -->
+            <!--            <a href="" target="_blank"></a>-->
+
+        </div>
+            </div>
+    <div class="action-box">
+        <ul>
+                        <li>
+                <strong class="is-praise  " type="1" blog_id="5379141" userid="15228921">
+                    <a href="javascript:;"><i></i></a>
+                    <span><b class="praise-num"></b>赞</span>
+                </strong>
+            </li>
+            <li>
+                <strong class="favorites-opt">
+                    <a href="javascript:;"><i></i></a>
+                    <span><b class="favorites-num"></b>收藏</span>
+                </strong>
+            </li>
+            <li>
+                <strong class="Topraise">
+                    <a href="javascript:;"><i class="iconblog blogpinglun"></i></a>
+                    <span><b class="comments_num"></b>评论</span>
+                </strong>
+            </li>
+            <li class="share">
+                <strong class="">
+                    <a href="javascript:;"><i class="iconblog blogfen"></i></a>
+                    <span>分享</span>
+                </strong>
+            </li>
+                            <li>
+                    <strong class="article-report">
+                        <a href="javascript:;"><i class="iconblog blogjubaobeifen report-icon" style="font-size: 23px"></i></a>
+                        <span>举报</span>
+                    </strong>
+                </li>
+                    </ul>
+    </div>
+    <div class="clearfix lists">
+                    <p class="fl"><span>上一篇：</span><a href="https://blog.51cto.com/xiaohaiwa/5379140">Log4Qt简易使用说明</a></p>
+                            <p class="fr"><span>下一篇：</span><a href="https://blog.51cto.com/xiaohaiwa/5379142">Qt Creator 出现这种问题undefined reference to `WSAStartup@8‘</a></p>
+            </div>
+    <div class="text-aticle">
+
+    </div>
+</div>
+    
+
+<div class="common-section common-spacing mb30 comment-box" id="comment">
+    <div class="comment-textarea clearfix">
+        <div class="avatar">
+            <a href="https://blog.51cto.com/16415226" class="header-img" target="_blank">
+                <img class="is-vip-img is-vip-img-4" data-uid="16405226" src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/noavatar_middle.gif">
+            </a><i class="vip-icon vip-icon-4" title="51CTO VIP会员"></i>
+        </div>
+        <div class="textarea-box">
+            <div class="textarea-show clearfix">
+                <span>提问和评论都可以，用心的回复会被更多人看到</span>
+                <strong>评论</strong>
+            </div>
+            <div class="textarea-hide">
+                <div class="top">
+                    <textarea class="textareadiv textareadiv-publish" name="" id="textareadiv-publish" placeholder="提问和评论都可以，用心的回复会被更多人看到和认可" maxlength="500"></textarea>
+                </div>
+                <div class="bot clearfix">
+                    <strong class="fr publish-btn" flag="1" id="publish-btn">发布评论</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="comment-num" style="display:none;">
+        <strong>全部评论</strong>
+        <span>(<b id="CommentNum"></b>)</span>
+        <span class="fr sort" type="up_num" order="0"><i class="iconblog blogzuire"></i>最热</span>
+        <span class="fr sort on" type="create_time" order="0"><i class="iconblog blogzuixinblogzuixin"></i>最新</span>
+    </div>
+    <div class="comment-List-box"></div>
+</div>
+    
+    <section class="common-section common-spacing mb30">
+        <div class="clearfix common-sub-title">
+            <strong>相关文章</strong>
+        </div>
+        <ul class="recommend-about">
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_9178859/3262228" data-report-query="xiangguantuijian&amp;01" target="_blank" class="title">
+                            <div class="tit">Log4Qt 使用（二）</div>
+                            <p> 本文基于上一篇《Log4Qt 使用（一）》来继续完善一下关于Log4Qt的使用。在讲解之前，我们首先来看一个例子：int main(int argc, char *argv[]){ QCoreApplication a(argc, argv); Log4Qt::PropertyConfi...</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         apache                                    </span>
+                                                                    <span class="tag-item">
+                                         日志文件                                    </span>
+                                                                    <span class="tag-item">
+                                         系统日志                                    </span>
+                                                                    <span class="tag-item">
+                                         文件大小                                    </span>
+                                                                    <span class="tag-item">
+                                         根目录                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_9178859/3262230" data-report-query="xiangguantuijian&amp;02" target="_blank" class="title">
+                            <div class="tit">Log4Qt 使用（一）</div>
+                            <p> 一、下载 http://sourceforge.net/projects/log4qt/develop二、Log4Qt介绍 Log4Qt 是Apache Log4J 的Qt移植版，所以看Log4J的资料应该是最直接有效的(因为Log4Qt的直接资料太少了)。 Log4Qt主要是用来记录日志(有...</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         动态库                                    </span>
+                                                                    <span class="tag-item">
+                                         库文件                                    </span>
+                                                                    <span class="tag-item">
+                                         日志记录                                    </span>
+                                                                    <span class="tag-item">
+                                         根目录                                    </span>
+                                                                    <span class="tag-item">
+                                         #include                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_15883582/5869913" data-report-query="xiangguantuijian&amp;03" target="_blank" class="title">
+                            <div class="tit">log4qt集成使用</div>
+                            <p> 1.下载git clone https://github.com/MEONMedical/Log4Qt.git2.配置  QT里面建项目如my7</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         log4qt                                    </span>
+                                                                    <span class="tag-item">
+                                         apache                                    </span>
+                                                                    <span class="tag-item">
+                                         #include                                    </span>
+                                                                    <span class="tag-item">
+                                         git                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/quantfabric/2299389" data-report-query="xiangguantuijian&amp;04" target="_blank" class="title">
+                            <div class="tit">Log4Qt快速入门——Log4Qt日志格式化源码解析</div>
+                            <p> Log4Qt快速入门——Log4Qt日志格式化源码解析一、Layout1、Layout简介Log4Qt提供了多种Layout对象，用于格式化日志输出，指定日志级别、线程名称、Logger名称、日期时间等信息。Layout类是Log4QtAPI中的抽象类。PatternLayout：根据一个模式字符串输出日志事件；SimpleLayout：输出日志事件的级别和消息；TTCCLayout：输出日志事件</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         Log4Qt                                     </span>
+                                                                    <span class="tag-item">
+                                         日志                                    </span>
+                                                                    <span class="tag-item">
+                                         格式化                                    </span>
+                                                                    <span class="tag-item">
+                                          源码解析                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/quantfabric/2299422" data-report-query="xiangguantuijian&amp;05" target="_blank" class="title">
+                            <div class="tit">Log4Qt快速入门——Log4Qt日志输出重定向源码解析</div>
+                            <p> Log4Qt快速入门——Log4Qt日志输出重定向源码解析一、Appender简介1、Appender简介Appender是所有Appender的抽象类，是对记录日志形式的抽象。Log4Qt（Qt4版本）中Appender继承体系如下：2、Appender接口virtualFilter*filter()const=0;virtualQStringname()const=0;virtualLayou</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         Log                                    </span>
+                                                                    <span class="tag-item">
+                                         4Qt                                     </span>
+                                                                    <span class="tag-item">
+                                         输出目                                    </span>
+                                                                    <span class="tag-item">
+                                         地重定向                                     </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/no001/407567" data-report-query="xiangguantuijian&amp;06" target="_blank" class="title">
+                            <div class="tit">Qt下的Log记录库 log4qt</div>
+                            <p> &nbsp;Qt下的Log记录库 log4qt&nbsp;&nbsp; &lt; src="http://blog.csdn.net/count.aspx?ID=2177781&amp;Type=Rank" type="text/javascript"&gt;&nbsp;&nbsp;&nbsp;但凡稍许有些规模的软件系统，都需要一个事件记录系统，将各类调</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         职场                                    </span>
+                                                                    <span class="tag-item">
+                                         记录                                    </span>
+                                                                    <span class="tag-item">
+                                         Log                                    </span>
+                                                                    <span class="tag-item">
+                                         休闲                                    </span>
+                                                                    <span class="tag-item">
+                                         qt                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_11408026/5783375" data-report-query="xiangguantuijian&amp;07" target="_blank" class="title">
+                            <div class="tit">Log4j 配置文件 log4j.appender.f1.File=</div>
+                            <p> Log4j.propertieslog4j.rootLogger=WARN,c1,f1log4j.appender.c1=org.apache.log4j.ConsoleAppenderlog4j.appender.tternLayoutlog4j.appender.c1.layout.ConversionPattern=%d{yyyy-</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         log4j                                    </span>
+                                                                    <span class="tag-item">
+                                         apache                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/waleon/5670979" data-report-query="xiangguantuijian&amp;08" target="_blank" class="title">
+                            <div class="tit">Log4Qt 日志格式化（TTCCLayout）</div>
+                            <p> 1TTCC 概要​​SimpleLayout​​ 对象采用的格式化风格非常简单，在某些情况下可能比较有用，但有时我们希望得到更详细的信息，特别是在多线程应用程序中。当多个客户端访问同一应用程序模块时，发布日志记录的时间、活动线程等信息非常重要，可以以此来区分多个独立的客户端行为。TTCCLayout 负责提供有关日志事件的详细信息，通常它包含以下内容：​​Time​​：从启动应用程序开始，以毫秒数</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         java                                    </span>
+                                                                    <span class="tag-item">
+                                         python                                    </span>
+                                                                    <span class="tag-item">
+                                         linux                                    </span>
+                                                                    <span class="tag-item">
+                                         spring                                    </span>
+                                                                    <span class="tag-item">
+                                         编程语言                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/xiaohaiwa/5379140" data-report-query="xiangguantuijian&amp;09" target="_blank" class="title">
+                            <div class="tit">Log4Qt简易使用说明</div>
+                            <p> 编译从网上下载Log4Qt源码使用QtVisualStudioTools工具导入Vs项目中修改相关配置，生成静态库使用这边进行了二次封装#</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         qt                                    </span>
+                                                                    <span class="tag-item">
+                                         开发语言                                    </span>
+                                                                    <span class="tag-item">
+                                         #include                                    </span>
+                                                                    <span class="tag-item">
+                                         apache                                    </span>
+                                                                    <span class="tag-item">
+                                         测试日志                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_12303347/3244767" data-report-query="xiangguantuijian&amp;10" target="_blank" class="title">
+                            <div class="tit">log4net的配置之appender</div>
+                            <p> 由于log4net默认情况下会独占日志文件，该文件不能被File.Open。可以通过增加配置：</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_13267193/5392834" data-report-query="xiangguantuijian&amp;11" target="_blank" class="title">
+                            <div class="tit">Qt教程(1) : 用Log4Qt自定义日志系统</div>
+                            <p> ​日志系统可以记录软件系统中硬件、软件和系统问题的信息，同</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         日志系统                                    </span>
+                                                                    <span class="tag-item">
+                                         Log4j                                    </span>
+                                                                    <span class="tag-item">
+                                         log4qt                                    </span>
+                                                                    <span class="tag-item">
+                                         QT                                    </span>
+                                                                    <span class="tag-item">
+                                         c++                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_16174476/6615974" data-report-query="xiangguantuijian&amp;12" target="_blank" class="title">
+                            <div class="tit">Log4J配置 category, appender,layout</div>
+                            <p> 类要继承父类的全部设置，比如：</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         log4j                                    </span>
+                                                                    <span class="tag-item">
+                                         layout                                    </span>
+                                                                    <span class="tag-item">
+                                         properties                                    </span>
+                                                                    <span class="tag-item">
+                                         service                                    </span>
+                                                                    <span class="tag-item">
+                                         output                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_15878482/5858256" data-report-query="xiangguantuijian&amp;13" target="_blank" class="title">
+                            <div class="tit">Log4cplus 配置文件</div>
+                            <p> 配置文件实例log4cplus.logger.demo_app=TRACE, demo_appenderlog4cplus.additivity.demo_app=FALSElog4cplus.appender.demo_appender=log4cplus::RollingFileAppenderlog4cplus.appender.demo_appender.File=./demo_a...</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         log4cplus                                    </span>
+                                                                    <span class="tag-item">
+                                         配置文件                                    </span>
+                                                                    <span class="tag-item">
+                                         日志文件                                    </span>
+                                                                    <span class="tag-item">
+                                         标识符                                    </span>
+                                                                    <span class="tag-item">
+                                         文件名                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/zc4530/22478" data-report-query="xiangguantuijian&amp;14" target="_blank" class="title">
+                            <div class="tit">log4j配置文件</div>
+                            <p> 1、定义配置文件　 首先使用配置文件将使我们的应用程序更加灵活配置log日志输出方式包括输出优先级、输出目的地、输出格式。Log4j支持两种配置文件格式，一种是XML格式的文件，一种是Java特性文件log4j.properties（键=值）。下面将介绍使用log4j.properties文件作为配置文件的方法：　　①配置根Logger，其语法为：0　　log4j.rootLogger = [</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         配置                                    </span>
+                                                                    <span class="tag-item">
+                                         职场                                    </span>
+                                                                    <span class="tag-item">
+                                         Log4j                                    </span>
+                                                                    <span class="tag-item">
+                                         休闲                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/hongpangzi/3621356" data-report-query="xiangguantuijian&amp;15" target="_blank" class="title">
+                            <div class="tit">Qt三方库开发技术：log4Qt介绍、编译和使用</div>
+                            <p> 原博主博客地址：https://blog.csdn.net/qq21497936本文章博客地址：https://blog.csdn.net/qq21497936/article/details/89155318目录前话Log4Qt介绍Qt4版本的log4qt源码下载模块化源码加入日志模块：将log4qt的源码包含到模块中：封装日志类Log.hLog.c...</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         log4qt                                    </span>
+                                                                    <span class="tag-item">
+                                         日志                                    </span>
+                                                                    <span class="tag-item">
+                                         #define                                    </span>
+                                                                    <span class="tag-item">
+                                         #include                                    </span>
+                                                                    <span class="tag-item">
+                                         apache                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/nethub/6856379" data-report-query="xiangguantuijian&amp;16" target="_blank" class="title">
+                            <div class="tit">Log - Log4j - log4j.properties配置文件</div>
+                            <p> 也可以完全不使用配置文件，而是在代码中配置Log4j环境。但是，使用配置文件将使您的应用程序更加灵活，不建议直接在代码里对日志环境进行设置&nbsp;。Log4j支持两种配置文件格式，一种是XML(log4j.xml&nbsp;)格式的文件，一种是properties(log4j.&nbsp;properties&nbsp;)格式的文件。一、使用properties格式做为配置文件的方法：示例：配置日志信息 输出目的地Ap...</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         java                                    </span>
+                                                                    <span class="tag-item">
+                                         操作系统                                    </span>
+                                                                    <span class="tag-item">
+                                         apache                                    </span>
+                                                                    <span class="tag-item">
+                                         日志记录                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_15075514/3618990" data-report-query="xiangguantuijian&amp;17" target="_blank" class="title">
+                            <div class="tit">【配置文件】Log4j</div>
+                            <p> 一、介绍 Log4j是Apache的一个开放源代码项目，通过使用Log4j，我们可以控制日志信息输送的目的地是控制台、文件、GUI组件、甚至是套接口服务 器、NT的事件记录器、UNIX Syslog守护进程等；我们也可以控制每一条日志的输出格式；通过定义每一条日志信息的级别，我们能够更加细致地控制日志的生成过程。 Log4j由三个重要的组件构成：日志信息的优先级，日志信息的输出目的地，日志信息的输出格式。日志信息的优先级从高到低有ERROR、WARN、 INFO、DEBUG，分别用来指定这条日志信息的重要程度；日志信息的输出目的地指定了日志将打印到控制台还是文件中；而输出格式则控制了日志信息的</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         apache                                    </span>
+                                                                    <span class="tag-item">
+                                         默认值                                    </span>
+                                                                    <span class="tag-item">
+                                         配置文件                                    </span>
+                                                                    <span class="tag-item">
+                                         优先级                                    </span>
+                                                                    <span class="tag-item">
+                                         输出格式                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_15057824/3866579" data-report-query="xiangguantuijian&amp;18" target="_blank" class="title">
+                            <div class="tit">log4net配置文件</div>
+                            <p> &lt;!-- log4net 配置 --&gt;  &lt;configSections&gt;    &lt;section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler" /&gt;  &lt;/configSections&gt;  &lt;log4net&gt;    &amp;lt</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         log4net                                    </span>
+                                                                    <span class="tag-item">
+                                         dotnet                                    </span>
+                                                                    <span class="tag-item">
+                                         文件名                                    </span>
+                                                                    <span class="tag-item">
+                                         日期格式                                    </span>
+                                                                    <span class="tag-item">
+                                         输出格式                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_15072917/3572721" data-report-query="xiangguantuijian&amp;19" target="_blank" class="title">
+                            <div class="tit">log4net的各种Appender配置示例</div>
+                            <p> 在log4net的配置中，appender是最重要的部分，一般来说，每一种appender都表示一种日志的输出介质，如日志文件、EvengLog、数据库、控制台、邮件、ASP.NET页面等。本文对各种内置的appender的配置提供了示例，但却远称不上详尽。要想了解每一种appender的参数和选项的说明，请参看该appender的SDK文档。以下示例都是.NET 2.0下进行的, log4n</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         lua                                    </span>
+                                                                    <span class="tag-item">
+                                         日志文件                                    </span>
+                                                                    <span class="tag-item">
+                                         缓存                                    </span>
+                                                                    <span class="tag-item">
+                                         sql                                    </span>
+                                                                    <span class="tag-item">
+                                         数据库                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_16099278/8682976" data-report-query="xiangguantuijian&amp;20" target="_blank" class="title">
+                            <div class="tit">python read 以unit32格式 python的readall</div>
+                            <p> 今日内容概要re模块网络爬虫简介第三方模块的下载爬虫示例之爬取地址信息openpyxl模块re模块（1）re模块常用功能：1.re.findall通过正则表达式筛选出文本中所有符合条件的数据import re
+res = re.findall('a','jason oscar aaa')
+print(res)   # 结果是个列表  
+# ['a', 'a', 'a', 'a', 'a']2.re</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         python                                    </span>
+                                                                    <span class="tag-item">
+                                         爬虫                                    </span>
+                                                                    <span class="tag-item">
+                                         开发语言                                    </span>
+                                                                    <span class="tag-item">
+                                         bc                                    </span>
+                                                                    <span class="tag-item">
+                                         数据                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_16099186/8687771" data-report-query="xiangguantuijian&amp;21" target="_blank" class="title">
+                            <div class="tit">mongodb 的搜索 mongodb做搜索引擎</div>
+                            <p> 在已经获得网页内容的前提下，除去自己不想要的内容，并且转化为 json格式的文本，导入到mongodb数据库中。概要:在上一次基础上（详见mongodb搭建校内搜索引擎——爬取网页文本）利用BeautifulSoup继续处理文本，过滤自己不感兴趣的标签中的文本，并用jieba分词模块，将文本分割成关键词，同时获得关键词在这个网页文档中的权重，最后用Python序列化，将python中的dict转化</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         mongodb 的搜索                                    </span>
+                                                                    <span class="tag-item">
+                                         mongodb                                    </span>
+                                                                    <span class="tag-item">
+                                         python2-7                                    </span>
+                                                                    <span class="tag-item">
+                                         序列化                                    </span>
+                                                                    <span class="tag-item">
+                                         jieba分词                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_16213599/8692719" data-report-query="xiangguantuijian&amp;22" target="_blank" class="title">
+                            <div class="tit">java ee的用途 java ee可以做什么</div>
+                            <p> 　　Java可以用来做什么?Java是一种可以撰写跨平台应用软件的面向对象的程序设计语言，是Java程序语言和Java平台的总称。Java 自面世后就非常流行，发展迅速。　　Java平台JavaSE、JavaEE、JavaME。对于不同的平台，可以用Java语言编程不同的程序，开发适合不同平台的应用软件。　　Java SE允许开发和部署在桌面、服务器、嵌入式环境和实时环境中使用的Java应用程序。</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         java ee的用途                                    </span>
+                                                                    <span class="tag-item">
+                                         java                                    </span>
+                                                                    <span class="tag-item">
+                                         java开发                                    </span>
+                                                                    <span class="tag-item">
+                                         编程                                    </span>
+                                                                    <span class="tag-item">
+                                         Java                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_16099234/8696080" data-report-query="xiangguantuijian&amp;23" target="_blank" class="title">
+                            <div class="tit">python画多啦a梦 python绘制哆啦a梦</div>
+                            <p> 对于分身术，大家想必都或多或少的从《火影忍者》的动漫上看到过，炫酷的影分身场面，每每看到都觉得非常过瘾。今天， 小编其实是蓝胖子的铁粉，满满的童年回忆啊！今天Python来实现一个简单的哆啦A梦分身术，看看python是如何实现影分身之术。01.技术设计要达到影分身的效果，需要一个背景图片和一个前景图片。我们以背景图片为基础，然后不断的在背景图片上添加前景图片，从而达到影分身的效果。这里我们采用p</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         python画多啦a梦                                    </span>
+                                                                    <span class="tag-item">
+                                         python画哆啦a梦图片                                    </span>
+                                                                    <span class="tag-item">
+                                         背景图片                                    </span>
+                                                                    <span class="tag-item">
+                                         Python                                    </span>
+                                                                    <span class="tag-item">
+                                         python                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                            <li>
+                    <div class="about-aticle-list">
+                        <a href="https://blog.51cto.com/u_16099322/8696311" data-report-query="" target="_blank" class="title">
+                            <div class="tit">android recovery 状态查看 安卓recovery命令</div>
+                            <p> 特点：需要手机获取Root权限，需掌握相关cmd命令和ADB命令；虽然命令不同， 但跟fastboot模式刷入方式类似 提示：①新手机未获取Root权限的在CMD命令行输入su后到手机上点击程序界面中 "allow”按钮，已获取的则不用 ②“驱动”建议解压到磁盘的根目录，方便操作 ③注意命令中单词之间有空格教文： 下载后缀名为img的recovery文件到手机SD卡根目录。 保证安装驱动程序成功。</p>
+                        </a>
+                        <!-- 标签页 -->
+                                                    <div class="tag-box">
+                                                                    <span class="tag-item">
+                                         安卓盒子刷rec linux启动                                    </span>
+                                                                    <span class="tag-item">
+                                         回车键                                    </span>
+                                                                    <span class="tag-item">
+                                         命令行                                    </span>
+                                                                    <span class="tag-item">
+                                         root权限                                    </span>
+                                                            </div>
+                                                                    </div>
+
+                </li>
+                    </ul>
+    </section>
+
+</article>
+        
+<aside class="detail-content-right">
+    <!--右上角统计-->
+    <section class="common-section common-spacing mb24 user-intr">
+        <div class="user-content">
+            <div class="top">
+                <div class="avatar">
+                    <div class="avatar-img">
+                        <a href="https://blog.51cto.com/xiaohaiwa" target="_blank" rel="nofollow">
+                            <img class="is-vip-img is-vip-img-4" data-uid="15228921" src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/a72c1ea05bac8db54be1abfb46a5f2a2.jpeg">
+                        </a>
+                    </div>
+                </div>
+                <div class="clearfix username">
+                    <a href="https://blog.51cto.com/xiaohaiwa" target="_blank"><span class="blog-user" title="我不是萧海哇" style="max-width: 272px;">我不是萧海哇</span></a>
+                    <div class="icon">
+                        <ul class="clearfix detail-list"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="identify-list"></div>
+            <div class="bottom" id="userStat"><div class="num-name num-top">
+                <ul class="first-num">
+                    <li>
+                        <div class="num"><a href="https://blog.51cto.com/xiaohaiwa/original" target="_blank" rel="nofollow">902</a></div>
+                        <div class="label-name"><a href="https://blog.51cto.com/xiaohaiwa/original" target="_blank" rel="nofollow">原创</a></div>
+                    </li>
+                    <li>
+                        <div class="num">242.1<span>万</span></div>
+                        <div class="label-name">人气</div>
+                    </li>
+                    <li>
+                        <div class="num"><a href="https://blog.51cto.com/xiaohaiwa/followers" target="_blank" rel="nofollow">33<span></span></a></div>
+                        <div class="label-name"><a href="https://blog.51cto.com/xiaohaiwa/followers" target="_blank" rel="nofollow">粉丝</a></div>
+                    </li>
+                    <li>
+                        <div class="num">15<span></span></div>
+                        <div class="label-name">评论</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="lines"></div>
+            <div class="num-name num-bottom">
+                <ul>
+                    <li>
+                        <div class="num"><a href="https://blog.51cto.com/xiaohaiwa/translate" target="_blank" rel="nofollow">0</a></div>
+                        <div class="label-name"><a href="https://blog.51cto.com/xiaohaiwa/translate" target="_blank" rel="nofollow">翻译</a></div>
+                    </li>
+                    <li>
+                        <div class="num"><a href="https://blog.51cto.com/xiaohaiwa/reproduce" target="_blank" rel="nofollow">1653</a></div>
+                        <div class="label-name"><a href="https://blog.51cto.com/xiaohaiwa/reproduce" target="_blank" rel="nofollow">转载</a></div>
+                    </li>
+                    <li>
+                        <div class="num"><a href="https://blog.51cto.com/xiaohaiwa/following" target="_blank" rel="nofollow">6</a></div>
+                        <div class="label-name"><a href="https://blog.51cto.com/xiaohaiwa/following" target="_blank" rel="nofollow">关注</a></div>
+                    </li>
+                    <li>
+                        <div class="num">49</div>
+                        <div class="label-name">收藏</div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+            </div></div>
+            <div id="medalListBox" class="medal-list"><div title="人气楷模" class="medalItem item"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/870061f17c69cc317af760cad5eb8c9a8e42b3.png"></div><div title="知名人士" class="medalItem item"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/15ab11299b3053d6c281582e1acf449c18b312.png"></div><div title="自成一派" class="medalItem item"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/81ba9de79b69d05f4333211abd2d0d4a008a05.png"></div><div title="一眼万年" class="medalItem item"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/195f76d50ffb2cd8b16664147e48ea8edd9fd6.png"></div><div title="锋芒毕露" class="medalItem item"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/f6f53e943b8feeab330770a0ec42efed855946.png"></div><div title="打卡萌新" class="medalItem item"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/73018cb72d1e136625d840df807c30a4444228.png"></div><div title="崭露头角" class="medalItem item"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/31b28da6607cbc93cd900122f89b19420ac8c5.png"></div><div title="一代宗师" class="medalItem item"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/61ba4e730b80264ca0076678a0dbd3e16f64bb.png"></div><div title="炉火纯青" class="medalItem item"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/c1c0bc692d7397c63280391ec9fc97b029aa51.png"></div><div title="博闻强识" class="medalItem item"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/a8ef82362559226c848000f191ce5a08f03207.png"></div></div>
+            <div class="operating clearfix ">
+                                                            <a id="checkFollow2_15228921" class="follow-1 checkFollow on" rel="nofollow">关注</a>
+                                                    <button class="sx" data="https://home.51cto.com/space?uid=15228921" id="ToSx"><a href="javascript:;" rel="nofollow"><i class="iconblog blogsixin"></i>私信</a></button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 分类列表 -->
+            <section class="common-section common-spacing mb24">
+            <div class="clearfix common-sub-title">
+                <strong title="分类列表">分类列表</strong>
+                            </div>
+            <ul class="common-list" id="classification-list">
+                                    <li>
+                        <a href="https://blog.51cto.com/xiaohaiwa/category2.html" target="_blank" title="#  Qt实战"><span># Qt实战</span><span>353篇</span></a>
+                    </li>
+                                    <li>
+                        <a href="https://blog.51cto.com/xiaohaiwa/category3.html" target="_blank" title="#  vs"><span># vs</span><span>40篇</span></a>
+                    </li>
+                                    <li>
+                        <a href="https://blog.51cto.com/xiaohaiwa/category4.html" target="_blank" title="#  数据库"><span># 数据库</span><span>10篇</span></a>
+                    </li>
+                                    <li>
+                        <a href="https://blog.51cto.com/xiaohaiwa/category5.html" target="_blank" title="#  加解密技术"><span># 加解密技术</span><span>11篇</span></a>
+                    </li>
+                            </ul>
+        </section>
+        <!-- 近期文章 -->
+            <section class="common-section common-spacing mb24">
+            <div class="clearfix common-sub-title">
+                <strong title="近期文章">近期文章</strong>
+            </div>
+            <ul class="common-list">
+                                    <li>
+                        <a href="https://blog.51cto.com/u_15203852/8704997" target="_blank" title="故障发现、定位提效超 70%，去哪儿可观测体系做了哪些优化？">1.故障发现、定位提效超 70%，去哪儿可观测体系做了哪些优化？</a>
+                    </li>
+                                    <li>
+                        <a href="https://blog.51cto.com/u_16129329/8705492" target="_blank" title="探索跨界电商：出海与Socks5代理技术的无缝结合">2.探索跨界电商：出海与Socks5代理技术的无缝结合</a>
+                    </li>
+                                    <li>
+                        <a href="https://blog.51cto.com/u_16246667/8705107" target="_blank" title="掌握Prompt工程，开启AI大模型新时代">3.掌握Prompt工程，开启AI大模型新时代</a>
+                    </li>
+                                    <li>
+                        <a href="https://blog.51cto.com/xdr630/8704996" target="_blank" title="使用 maven 自动将源码打包并发布">4.使用 maven 自动将源码打包并发布</a>
+                    </li>
+                                    <li>
+                        <a href="https://blog.51cto.com/techfanyi/8704936" target="_blank" title="【Java 进阶篇】Java会话技术之Cookie的存活时间">5.【Java 进阶篇】Java会话技术之Cookie的存活时间</a>
+                    </li>
+                            </ul>
+        </section>
+        <section class="common-fix">
+        <!-- 新人活动 -->
+        <a href="https://blog.51cto.com/activity-first-publish#xiang" target="_blank" class="ac-box mb24">
+            <img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/DetailsBride.gif" alt="新人福利" lazy="loaded">
+        </a>
+
+        <!-- 文章目录 -->
+            </section>
+
+
+
+</aside>
+    </div>
+    <!--悬浮小菜单-->
+        <aside class="minmenu" style="display: block;">
+        <ul>
+            <li class="signIn" signid="2">
+                <button id="signIn">  每日签到</button>
+            </li>
+            <li class="editArticle" editid="2">
+                <!-- <div class="new_bloger ">新人福利</div> -->
+                 <button id="editArticle"><i class="iconblog blogxiewz"></i></button>
+            </li>
+            <li class="feedback">
+              <a href="https://blog.51cto.com/feedback?utm_medium=rightsuspension" target="_blank">意见<br>反馈</a>
+            </li>
+            <li class="scrollToTop">
+              <i class="iconblog bloggengduo1"></i>
+            </li>
+        </ul>
+    </aside>
+</div>
+<!-- 蒙层 -->
+<div class="Mask"></div>
+
+<div class="report-dialog-root">
+    <div class="report-dialog-container">
+        <p class="report-dialog-title">举报文章</p>
+        <div class="report-type-container model-split_top" data-type="0" id="report-specific-type">
+            <p class="report-type-tit">请选择举报类型</p>
+            <div class="report-type-enmu">
+                <span class="report-type-item type-item_first" data-type="1">内容侵权</span>
+                <span class="report-type-item type-item_first item-split" data-type="2">涉嫌营销</span>
+                <span class="report-type-item type-item_first item-split" data-type="3">内容抄袭</span>
+                <span class="report-type-item type-item_first item-split" data-type="4">违法信息</span>
+                <span class="report-type-item type-item_first item-split" data-type="5">其他</span>
+            </div>
+        </div>
+        <div class="report-type-container model-split_top report-hide-model" id="report-specific-reasons" data-type="0">
+            <p class="report-type-tit">具体原因</p>
+            <div class="report-type-enmu">
+                <span class="report-type-item type-item_second" data-type="1">包含不真实信息</span>
+                <span class="report-type-item type-item_second item-split" data-type="2">涉及个人隐私</span>
+            </div>
+        </div>
+        <div class="report-type-container model-split_top report-hide-model" id="report-original-link">
+            <p class="report-type-tit">原文链接（必填）</p>
+            <input type="text" placeholder="请输入被侵权的原文链接" class="report-orgin_input">
+        </div>
+        <div class="report-type-container model-split_top textarea-content">
+            <p class="report-type-tit">补充说明</p>
+            <textarea maxlength="200" class="report-reason_textarea" placeholder="请详细描述您的举报内容" id="report-more-info"></textarea>
+            <p class="report-textarea-tip"><span class="tip-left">0</span><span>/200</span></p>
+        </div>
+        <div class="report-type-container">
+            <p class="report-type-tit">上传截图</p>
+            <div class="report-img-container">
+                <i class="iconblog blogtianjiabeifen report-add-icon"></i>
+                <input type="file" accept="image/jpg,image/jpeg,image/png" name="file" class="repot-btn-select" onchange="selectImg(this)">
+            </div>
+            <p class="report-img_rule">格式支持JPEG/PNG/JPG，图片不超过1.9M</p>
+            <div class="report-img-show">
+                <img src="https://blog.51cto.com/xiaohaiwa/5379141" alt="" id="report-img">
+                <div class="report-img-close">
+                    <i class="iconblog bloga-shanchutupian report-close-icon"></i>
+                </div>
+            </div>
+        </div>
+        <div class="report-btn-container">
+            <button class="report-btn-cancel">取消</button>
+            <button class="report-btn-concert">确认</button>
+        </div>
+        <div class="report-warm-tip report-hide-model">
+            已经收到您得举报信息，我们会尽快审核
+        </div>
+    </div>
+</div>
+<div class="imgViewDom disnone" style="display: none;">
+    <div class="img-content"></div>
+</div>
+<!--左边悬浮操作项-->
+<aside class="action-aside action-aside-left">
+    <div class="inner">
+        <ul>
+                        <li>
+                <strong class="is-praise  " type="1" blog_id="5379141" userid="15228921">
+                    <a href="javascript:;"><i></i></a>
+                    <span><b class="praise-num"></b>赞</span>
+                </strong>
+            </li>
+            <li>
+                <strong class="favorites-opt">
+                    <a href="javascript:;"><i></i></a>
+                    <span><b class="favorites-num"></b>收藏</span>
+                </strong>
+            </li>
+            <li>
+                <strong class="Topraise">
+                    <a href="javascript:;"><i class="iconblog blogpinglun"></i></a>
+                    <span><b class="comments_num"></b>评论</span>
+                </strong>
+            </li>
+            <li class="share">
+                <strong class="">
+                    <a href="javascript:;"><i class="iconblog blogfen"></i></a>
+                    <span>分享</span>
+                </strong>
+            </li>
+        </ul>
+    </div>
+</aside>
+    <div class="modal-bg">
+         <div class="modal">
+            <i class="iconblog blogquxiao18 close-btn"></i>
+            <div class="content "></div>
+            <div class="tip-box">如有误判或任何疑问，可联系 <a href="javascript:;" class="zhiCustomBtn">「小助手微信：cto51cto」</a><span class="appeal_text">申诉及反馈</span>。</div>
+             <div class="know-box">
+                <span class="know-btn">我知道了</span>
+             </div>
+
+         </div>
+    </div>
+<div class="dialog-box">
+    <div class="mask"></div>
+    <div class="body">
+        <div id="close" class="close"></div>
+        <div id="medalListBox2"></div>
+    </div>
+</div>
+<div class="dialog-box-small">
+    <div class="mask"></div>
+    <div class="body">
+        <div id="close" class="close"></div>
+        <div id="medalBox2" class="medal-list">
+        </div>
+    </div>
+</div></div>
+  <header class="home-top" style="display: none;">
+    <div class="Page">
+        <div class="top_box">
+            <div class="left_nav">
+                               <div class="item-lf "><a class="top" href="https://www.51cto.com/" target="_blank" rel="nofollow" data-id="1"> 51CTO首页                                </a></div>
+                               <div class="item-lf "><a class="top" href="https://www.51cto.com/dev?utm_source=hometop" target="_blank" rel="nofollow" data-id="2"> 内容精选                                </a></div>
+                               <div class="item-lf "><a class="top" href="https://blog.51cto.com/" target="_blank" rel="nofollow" data-id="3"> 博客                                </a></div>
+                               <div class="item-lf "><a class="subweb" href="https://edu.51cto.com/?utm_source=hometop" target="_blank" rel="nofollow" data-id="4"> 学堂                                </a></div>
+                               <div class="item-lf "><a class="subweb" href="https://e.51cto.com/?utm_platform=pc&amp;utm_medi-um=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar" target="_blank" rel="nofollow" data-id="5"> 精培                                </a></div>
+                               <div class="item-lf "><a class="subweb" href="https://b.51cto.com/index?utm_source=hometop" target="_blank" rel="nofollow" data-id="6"> 企业培训                                </a></div>
+                               <div class="item-lf "><a class="subweb" href="https://x.51cto.com/?www" target="_blank" rel="nofollow" data-id="7"> CTO训练营                                </a></div>
+                               <div class="item-lf "><a class="subweb" href="https://ost.51cto.com/?utm_source=hometop" target="_blank" rel="nofollow" data-id="9"> 鸿蒙开发者社区                                </a></div>
+                               <div class="item-lf "><a class="top" href="https://wot.51cto.com/?utm_source=dhl" target="_blank" rel="nofollow" data-id="10"> WOT全球技术创新大会                                </a></div>
+                           </div>
+            <div class="top_right">
+                <div class="item-rt"><a href="http://so.51cto.com/?keywords=&amp;sort=time" target="_blank" class="search-top" rel="nofollow"><i class="iconblog blogsou blog-search"></i></a></div>
+                <div class="item-rt"><span class="wechatlist" data-id="wechatImageList">公众号矩阵</span></div>
+                <div class="item-rt"><span class="applist" data-id="appImageList">移动端</span></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="nav-more-container ">
+        <div class="Page nav-contant-box">
+                                                                                                                                   <div class="nav-contant " data-id="4">
+                                           <a href="https://edu.51cto.com/videolist/index.html?utm_platform=pc&amp;utm_medium=51cto&amp;utm_source=zhuzhan&amp;utm_content=dh" target="_blank">短视频</a>
+                                              <a href="https://edu.51cto.com/courselist/index-zh5.html?utm_source=hometop" target="_blank">免费课程</a>
+                                              <a href="https://edu.51cto.com/ranking/index.html?utm_source=hometop" target="_blank">课程排行</a>
+                                              <a href="https://e.51cto.com/ncamp/list?utm_platform=pc&amp;utm_medium=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar&amp;rtm_frd=13" target="_blank">直播课</a>
+                                              <a href="https://e.51cto.com/rk/?utm_platform=pc&amp;utm_medi-um=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar&amp;rtm_frd=14" target="_blank">软考学堂</a>
+                                            </div>
+                                                                  <div class="nav-contant " data-id="5">
+                                           <a href="https://e.51cto.com/?utm_platform=pc&amp;utm_medi-um=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar" target="_blank">精品班</a>
+                                              <a href="https://e.51cto.com/wejob/list?pid=5&amp;utm_platform=pc&amp;utm_medium=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar&amp;rtm_frd=41" target="_blank">厂商认证</a>
+                                              <a href="https://e.51cto.com/wejob/list?pid=1&amp;utm_platform=pc&amp;utm_medium=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar&amp;rtm_frd=42" target="_blank">IT技术</a>
+                                              <a href="https://e.51cto.com/rk/?utm_platform=pc&amp;utm_medium=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_xyzq_rightwzl&amp;rtm_frd=07&amp;utm_medium=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar&amp;rtm_frd=43" target="_blank">2024年软考</a>
+                                              <a href="https://e.51cto.com/wejob/list?pid=33&amp;utm_platform=pc&amp;utm_medium=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar&amp;rtm_frd=44" target="_blank">PMP项目管理</a>
+                                              <a href="https://edu.51cto.com/rk/" target="_blank">软考资讯</a>
+                                            </div>
+                                                                  <div class="nav-contant " data-id="6">
+                                           <a href="https://b.51cto.com/index?utm_source=hometop" target="_blank">在线学习</a>
+                                            </div>
+                                                                  <div class="nav-contant " data-id="7">
+                                           <a href="https://x.51cto.com/?www" target="_blank">CTO训练营</a>
+                                              <a href="https://x.51cto.com/act/cto/tl" target="_blank">技术经理研习营</a>
+                                              <a href="https://x.51cto.com/act/cto/leatech2021?www1" target="_blank">LeaTech峰会</a>
+                                            </div>
+                                                                  <div class="nav-contant " data-id="9">
+                                           <a href="https://ost.51cto.com/postlist" target="_blank">文章</a>
+                                              <a href="https://ost.51cto.com/resource" target="_blank">资源</a>
+                                              <a href="https://ost.51cto.com/answerlist" target="_blank">问答</a>
+                                              <a href="https://ost.51cto.com/study" target="_blank">课堂</a>
+                                              <a href="https://ost.51cto.com/column" target="_blank">专栏</a>
+                                              <a href="https://ost.51cto.com/activity" target="_blank">直播</a>
+                                            </div>
+                                                                                            <div class="nav-contant wechatImageList" data-id="wechatImageList">
+                                           <div class="ewmbox"><div class="imgbox"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/862966771f540df82857144db74b27ee5b4b23.jpeg"></div><span class="txt">51CTO</span></div>
+                                              <div class="ewmbox"><div class="imgbox"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/d53d67c771f5cc42bac359bceb138c4cb1713b.jpg"></div><span class="txt">开源基础软件社区</span></div>
+                                              <div class="ewmbox"><div class="imgbox"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/58786f9973e5e929ef521783e1ee40413b04de.jpeg"></div><span class="txt">51CTO技术栈</span></div>
+                                              <div class="ewmbox"><div class="imgbox"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/c77c03983d48589b1af789dfc284acb6a7c529.jpeg"></div><span class="txt">51CTO官微</span></div>
+                                              <div class="ewmbox"><div class="imgbox"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/544d71641d983430fc9955636e625e6bb21ff9.jpeg"></div><span class="txt">51CTO学堂</span></div>
+                                              <div class="ewmbox"><div class="imgbox"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/f1bd61e720bf669483d941a8486c124f32c451.jpeg"></div><span class="txt">51CTO博客</span></div>
+                                              <div class="ewmbox"><div class="imgbox"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/4719e7b27bae3af5e33552481b6cb913288b01.jpeg"></div><span class="txt">CTO训练营</span></div>
+                                              <div class="ewmbox"><div class="imgbox"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/61a991f484307eed2fe9356cc215c4d8f2dc0f.jpg"></div><span class="txt">开源基础软件社区订阅号</span></div>
+                                            </div>
+                                                        <div class="nav-contant appImageList" data-id="appImageList">
+                                           <div class="ewmbox"><div class="imgbox"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/24febb8152cc24e264e642f8cb8bb515efea26.jpeg"></div><span class="txt">51CTO学堂APP</span></div>
+                                              <div class="ewmbox"><div class="imgbox"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/43cca7d0489cc5d1f70060be760bde17d552e2.jpeg"></div><span class="txt">51CTO学堂企业版APP</span></div>
+                                              <div class="ewmbox"><div class="imgbox"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/c4d2220826890472539671d7c428f0c0ee9451.jpg"></div><span class="txt">开源基础软件社区视频号</span></div>
+                                            </div>
+                        </div>
+    </div>
+</header>
+<div class="Header  " style="height: 70px; top: 0px; display: none;">
+     <div class="header-content">
+        <div class="header-left">
+                            <div class="Logo"><a href="https://blog.51cto.com/"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/logo.png" alt="51CTO博客" width="100" title="51CTO博客">
+                    <h2>51CTO博客</h2>
+                </a></div>
+                  <ul class="Navigates  commonhide">
+            <li><a href="https://blog.51cto.com/">首页</a>
+                <div class="spam-classifications" style="display:none;">
+                    <div class="spam-classifications-content">
+                        <div class="classification-ipc" id="classification-ipc"></div>
+                        <div class="classification-primary-list-box" id="classification-primary-list-box"></div>
+
+                    </div>
+                </div>
+            </li>
+            <li><a href="https://blog.51cto.com/nav/following">关注</a></li>
+            <li><a href="https://blog.51cto.com/ranking/hot">排行榜</a></li>
+            <li class="">
+                <a href="https://blog.51cto.com/cloumn/index">订阅专栏</a>
+            </li>
+                            <li class="first"><a href="https://blog.51cto.com/activity-first-publish#shouye" target="_blank"><img alt="新人福利" src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/first2.gif"></a></li>
+                        </ul>
+     </div>
+        <ul class="header-right">
+                <li class="search">
+                    <form class=" form-search" method="get" action="https://blog.51cto.com/search/result" target="_blank" novalidate="">
+                        <input type="text" name="q" placeholder="搜索文章、作者" id="TopSearchInput" autocomplete="off" required="">
+                         <i class="iconblog  bloga-shanchutupian"></i>
+                        <button class="iconblog blogsou" id="TopSearchBtn"></button>
+                    </form>
+                    <div class="focusSelect focusSelect_his" style="display: none;">
+
+                        <div class="searchHistoryList" style="display: none;">
+                            <div class="clearfix hishead">搜索历史
+                                <span class="clearhis"><i class="iconblog blogshanchu18 "></i>清空</span>
+                            </div>
+                            <div class="hisitem-wrap"></div>
+                        </div>
+
+                        <div class="hotList" style="display: none;">
+                            <div class="clearfix hishead">热门搜索</div>
+                            <div class="hot-wrap"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="focusSelect focusSelect_key">
+                        <div class="keyitem-wrap">
+
+                        </div>
+                        <div class="clearfix checkSearchResult">
+                            <span>查看【</span>
+                            <span class="checkKey"></span>
+                            <span>】的结果</span>
+                        </div>
+                    </div>
+                </li>
+                                                              <li class="write commonhide">
+                            
+                                                            <a href="https://blog.51cto.com/activity-first-publish?utm_medium=navigationpublish" class="want-write" rel="nofollow"> <i class="iconblog  blogxiewenzhang"></i> 写文章</a>
+                                                    </li>
+                         <li class="creative"><a href="https://blog.51cto.com/creative-center/index">创作中心</a><a href="https://blog.51cto.com/creative-center/task" class="task"></a></li>
+                                                                                 <li class="more message">
+                    <a class="message-link" href="https://blog.51cto.com/notify/index#101" id="myAllMsg" target="_blank"> 消息<i class="">4</i></a>
+                    <div>
+                        <div class="ins" id="headermessageNew">
+                        <a href="https://blog.51cto.com/notify/index#101" target="_blank" id="dianzan">点赞</a><a href="https://blog.51cto.com/notify/index#102" target="_blank" id="dianzan">评论</a><a href="https://blog.51cto.com/notify/index#103" target="_blank" id="dianzan">关注</a><a href="https://blog.51cto.com/notify/index#104" target="_blank" id="dianzan">收藏</a><a href="https://blog.51cto.com/notify/index#105" target="_blank" id="dianzan">系统通知<i class="">2</i></a><a href="https://home.51cto.com/msg/inbox" target="_blank">私信<i class="">2</i></a></div>
+                    </div>
+                </li>
+                 <li class="more user">
+                    <a class="is-vip-bg-1" href="https://blog.51cto.com/u_16415226" target="_blank">
+                        <img data-uid="16405226" alt="wx6570317997293" src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/noavatar_middle(1).gif">
+                    </a>
+                    <div class="user-alert">
+                        <div class="ins">
+                            <a class="user-base" href="https://blog.51cto.com/u_16415226" target="_blank">
+                                    <img data-uid="16405226" src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/noavatar_middle(1).gif"><span>wx6570317997293</span>
+                            </a>
+                            <div class="user-message">
+                                 <div class="user-medal"></div>
+                                 <div class="user-modal"><div class="stat-item"><div class="stat-num">0</div> <div>人气</div></div><div class="stat-item"><div class="stat-num">0</div> <div>原创</div></div><div class="stat-item"><div class="stat-num">0</div> <div>粉丝</div></div></div>
+                            </div>
+                            <div class="user-menu">
+                            <a href="https://blog.51cto.com/creative-center/index"><i class="iconblog blogchuangzuozx"></i>创作中心</a>
+                            <a href="https://blog.51cto.com/u_16415226"><i class="iconblog blogwode"></i>我的博客</a>
+                           <a href="https://home.51cto.com/space/favorite?uid=16405226" target="_blank"><i class="iconblog blogshoucang-4"></i>我的收藏</a>
+                            <a href="https://blog.51cto.com/stu/history"><i class="iconblog blogijilu"></i>我的学习记录</a>
+                            <a href="https://blog.51cto.com/cloumn/mine"><i class="iconblog blogzhuanlan"></i>我的订阅专栏</a>
+                                                        <a href="https://blog.51cto.com/coupon/list"><i class="iconblog blogquan"></i>我的优惠券</a>
+                            <a href="https://blog.51cto.com/feedback?utm_medium=me" target="_blank"><i class="iconblog blogyijianfk"></i>意见反馈<span class="dot"></span></a>
+                            </div>
+                          <a class="login-out" href="https://blog.51cto.com/user/logout">退出</a>
+
+                        </div>
+                    </div>
+                </li>
+
+                    </ul>
+
+    </div>
+<div class="search-mask" style="display: none;"></div></div>
+    <!-- if publish show -->
+    <div class="Footer">
+        <div class="Page ">
+            <div class="fl">
+                <a href="https://blog.51cto.com/" class="Logo"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/logo4.png" alt="51CTO博客" width="214" title="51CTO博客"></a>
+                <p class="copy">Copyright © 2005-2023 <a href="https://www.51cto.com/" target="_blank">51CTO.COM</a>
+                    版权所有 京ICP证060544号</p>
+            </div>
+
+            <dl class="foot_ab fr">
+                <dt>关于我们</dt>
+                <dd>
+                    <table class="aboutList">
+                        <tbody><tr>
+                            <td><a href="https://blog.51cto.com/51ctoblog" target="_blank">官方博客</a></td>
+                            <td><a href="https://blog.51cto.com/nav" target="_blank">全部文章</a></td>
+                            <td><a href="https://blog.51cto.com/topic/all" target="_blank">热门标签</a></td>
+                            <td><a href="https://blog.51cto.com/class-blog/index" target="_blank" data-v-6e9e21b4="">班级博客</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://www.51cto.com/about/aboutus.html" target="_blank">了解我们</a></td>
+                            <td><a href="https://www.51cto.com/about/map.html" target="_blank">网站地图</a></td>
+                            <td><a href="https://blog.51cto.com/feedback?utm_medium=aboutus2" target="_blank">意见反馈</a></td>
+
+                        </tr>
+                    </tbody></table>
+                </dd>
+            </dl>
+
+
+            <dl class="foot_link fr">
+                <dt>友情链接</dt>
+                <dd>
+                    <table class="aboutList-2">
+                        <tbody><tr>
+                            <td><a href="https://ost.51cto.com/?utm_source=blogsitemap" target="_blank">开源基础软件社区</a></td>
+                            <td><a href="https://edu.51cto.com/" target="_blank">51CTO学堂</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://www.51cto.com/" target="_blank">51CTO</a></td>
+                            <td><a href="https://edu.51cto.com/rk/" target="_blank">软考资讯</a></td>
+                            <td> <a href="https://icv.51cto.com/" target="_blank">汽车开发者社区</a></td>
+                        </tr>
+                    </tbody></table>
+                </dd>
+            </dl>
+
+        </div>
+    </div>
+    
+
+<script>
+    var userId=16405226;
+var uid=16405226;
+var user_id=15228921;
+var isLogin=1;
+var imgpath="https://s2.51cto.com/";
+var BLOG_URL="https://blog.51cto.com/";
+var HOME_URL="https://home.51cto.com/";
+var STATICPATH="https://static2.51cto.com/edu/";
+var SA_SERVER_URL_YM="https://sc.51cto.com/sa?project=production";
+var cururl="https://blog.51cto.com/xiaohaiwa/5379141";
+var login_url="https://home.51cto.com/mobile/client-login?reback=https://blog.51cto.com/xiaohaiwa/5379141";
+var praise_url="https://blog.51cto.com/praise/praise";
+var qrcodeSid="";
+var qr_code="";
+var router="blog/index";
+var csrfParam="_csrf";
+var csrfToken="ihKwuqCPQHSNNZbD7fFGKUjLesrPOcct6fizdQJ1guwZPJgWKOBedb0T4h3vBFUhlJhC-_QGbHyZJ-704qi5tw==";
+var is_load=0;
+var uc_url="https://ucenter.51cto.com/";
+var blog_url="https://blog.51cto.com/";
+var isBuy=1;
+var isPc=0;
+var writeMessage="Log4Qt个人整理的配置文件\r\nhttps:\/\/blog.51cto.com\/xiaohaiwa\/5379141";
+var isCodeCopy=0;
+var cid="";
+var fid=0;
+var commentListPage="";
+var originalUrl="https://blog.51cto.com/xiaohaiwa/original";
+var followersUrl="https://blog.51cto.com/xiaohaiwa/followers";
+var translateUrl="https://blog.51cto.com/xiaohaiwa/translate";
+var reproduceUrl="https://blog.51cto.com/xiaohaiwa/reproduce";
+var followingUrl="https://blog.51cto.com/xiaohaiwa/following";
+var page="detail";
+var tipStatus=1;
+var addReply_url="https://blog.51cto.com/addBlogComment";
+var removeUrl="https://blog.51cto.com/delBlogComment";
+var blog_id=5379141;
+var is_comment=0;
+var comment_list="https://blog.51cto.com/getBlogCommentList";
+var index_url="https://blog.51cto.com/xiaohaiwa";
+var img_url="https://static2.51cto.com/edu/blog/";
+var i_user_id=16405226;
+var c_user_id=15228921;
+var collect_url="https://blog.51cto.com/addUserCollect";
+var is_old=2;
+var nicknameurl="https://blog.51cto.com/xiaohaiwa";
+var nickname="我不是萧海哇";
+var shareimgUrl="/qr/qr-url?url=https%3A%2F%2Fblog.51cto.com%2Fxiaohaiwa%2F5379141";
+var checkFollow=1;
+var seoTitle="log4qt";
+var articleABtest=1;
+var blog_source=2;
+var blog_source_video=2;
+var blog_add_time=1655111664;
+var word_type=0;
+var custom_id=41;
+var firstTwoCate=31;
+var webTitle="Log4Qt个人整理的配置文件";
+            !function(f,p){"use strict";var h=new RegExp("\\.css"),y=p.head||p.getElementsByTagName("head")[0],r=+navigator.userAgent.replace(/.*(?:AppleWebKit|AndroidWebKit)\/?(\d+).*/i,"$1")<536;function s(e){return"complete"===e.readyState||"loaded"===e.readyState}function v(e,t,n){var o="onload"in e;function a(){e.onload=e.onreadystatechange=null,e=null,t()}"css"!==n||!r&&o?o?(e.onload=a,e.onerror=function(){e.onerror=null}):e.onreadystatechange=function(){s(e)&&a()}:setTimeout(function(){!function e(t,n){var o;t.sheet&&(o=!0),setTimeout(function(){o?n():e(t,n)},20)}(e,t)},1)}function u(t,n,e,o){if(t)if(h.test(t)){var a=t,r=e,c=u,i=p.createElement("link");if(r.attrs)for(var l in r.attrs)i.setAttribute(l,r.attrs[l]);r.prefetch?(i.href=a,i.rel="prefetch",c&&c()):(i.rel="stylesheet",v(i,c,"css"),i.href=a),y.appendChild(i)}else{var c=t,d=e,a=u,f=d.prefetch?p.createElement("link"):p.createElement("script");if(d.attrs)for(var s in d.attrs)f.setAttribute(s,d.attrs[s]);d.prefetch?(f.href=c,f.rel="prefetch",a&&a()):(f.charset="utf-8",v(f,a,"js"),f.async=!1,f.src=c),y.appendChild(f)}else setTimeout(function(){u()});function u(){var e=n.indexOf(t);-1<e&&n.splice(e,1),0===n.length&&o()}}function c(e="load",t){var n="object"==typeof t.option?t.option:{},t="function"==typeof t.callback?t.callback:null;return n.attrs="object"==typeof n.attrs?n.attrs:{},n.loaded="boolean"==typeof n.loaded&&n.loaded,n[e]=!0,{option:n,cb:t}}function i(c,e,t="load"){var n,o,a,r,i,l;function d(){var e=c,t=i,n=l;function o(){n&&n()}if(0===(e=Array.prototype.slice.call(e||[])).length)o();else for(var a=0,r=e.length;a<r;a++)u(e[a],e,t,o)}c&&c.length&&(i=e.option,l=e.cb,e=p,n=function(){"load"===t&&i.loaded?setTimeout(d,2e3):d()},("ready"===(o=t)?"loading"!==e.readyState:s(e))?n():(a=!1,r=function(){a||(n(),a=!0)},"load"===o?f.addEventListener("load",r):"ready"===o&&p.addEventListener("DOMContentLoaded",r),setTimeout(function(){r()},1500)))}f.PsLoader={ready:function(e,t,n={}){var o=[],a=[];e.forEach(function(e){(h.test(e)?o:a).push(e)}),n.loaded=!1,i(o,c("ready",{option:n,callback:function(){t(o)}}),"ready"),i(a,c("load",{option:n,callback:function(){t(a)}}))},load:function(e,t,n={}){i(e,c("load",{option:n,callback:t}))},prefetch:function(e,t,n={}){i(e,c("prefetch",{option:n,callback:t}))}}}(window,document);        !function(m,g){var t=["scroll","wheel","mousewheel","resize","animationend","transitionend","touchmove"];function n(e){if("object"!=typeof e)throw new Error("CLazy option is not Object");var f={defaultImg:e.defaultImg||"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",preLoad:e.preLoad||1.3,preLoadTop:e.preLoadTop||0,complete:e.complete||null,events:e.events||t,capture:e.capture||!1},v=0,p={},h={},i={},A=this;function l(e){var t=e;if("object"!=typeof t)return!1;if(!t.el)for(var r in p)if(e===p[r].el){t=p[r];break}return t}function c(e){var e=e.getBoundingClientRect(),t=f.preLoad,r=f.preLoadTop;return e.top<m.innerHeight*t&&e.bottom>r&&e.left<m.innerWidth*t&&0<e.right}function u(e,t){var r,n=e.bindType,o=e.el;switch(t){case"loading":case"error":r=f.defaultImg;break;default:r=e.src}n?e.src&&(o.style[n]='url("'+r+'")'):o.getAttribute("src")!==r&&o.setAttribute("src",r),o.setAttribute("lazy",t)}this.add=function(e,t){var r=function(e){var t,r=!1;for(t in p)if(p[t].el===e){r=p[t];break}return r}(e);if(r)return this.check(r),!1;r="e_"+ ++v;if(p[r])return this.check(p[r]),!1;for(var n,o={id:r,el:e,bindType:"IMG"===e.tagName?null:"background-image",src:(n=e,(t=t)?t.value:n.getAttribute("ps-lazy")),$parent:function(e){if(!(e instanceof HTMLElement))return m;var t=e;for(;t&&t!==g.body&&t!==g.documentElement&&t.parentNode;){if(/(scroll|auto)/.test(function(e){return y(e,"overflow")+y(e,"overflow-y")+y(e,"overflow-x")}(t)))return t;t=t.parentNode}return m}(e)},a=(h[r]=function(e){A.check(o)},p[r]=o),i=h[r],c=0;c<f.events.length;c++){s=d=u=l=void 0;var[l,u,d,s=!1]=[a.$parent,f.events[c],i,f.capture];l&&l.addEventListener(u,d,s),m!==l&&m.addEventListener(u,d,s)}this.check(o)},this.remove=function(e){for(var e=l(e),t=(e.el&&e.el.removeAttribute("ps-lazy"),e),r=h[e.id],n=0;n<f.events.length;n++){c=i=a=o=void 0;var[o,a,i,c=!1]=[t.$parent,f.events[n],r,f.capture];o&&o.removeEventListener(a,i,c),m!==o&&m.removeEventListener(a,i,c)}delete h[e.id],delete p[e.id]},this.check=function(e){var t,r,n,o,a=l(e);c(a.el)&&(m===a.$parent||c(a.$parent))?(e=function(e){u(a,e),A.remove(a),f.complete&&f.complete({el:a.el,src:a.src,state:e})},a.src?(t=a.src,r=e,n=encodeURIComponent(t),i[n]?r(i[n]):((o=new Image).onload=function(){i[n]="loaded",r(i[n])},o.onerror=function(){i[n]="error",r(i[n])},o.src=t)):e("loaded")):u(a,"loading")},this.checkAll=function(){for(var e in p)A.check(p[e])}}function y(e,t){return"undefined"!=typeof getComputedStyle?getComputedStyle(e,null).getPropertyValue(t):e.style[t]}m.PsLazy=function(e={}){function t(e){for(var t=e.path||event.composedPath&&event.composedPath()||e._getPath&&e._getPath(),r=0;r<t.length;r++){var n=t[r];if(n&&"hasAttribute"in n&&n.hasAttribute("ps-lazy-check")){o.format();break}}}function r(){var e=g.querySelector("img[data-share]");e&&!e.getAttribute("src")&&e.setAttribute("src",e.getAttribute("data-share"))}var o=this;n.call(o,e),g.addEventListener("click",t),g.addEventListener("mouseover",t),this.format=function(){var e=g.querySelectorAll("[ps-lazy]");if(!e.length)return!1;for(var t=0;t<e.length;t++)o.add(e[t])},this.format();"complete"===(e=g).readyState||"loaded"===e.readyState?r():m.addEventListener("load",r,!1)}}(window,document);        PsLoader.load(["https://static2.51cto.com/edu/blog/blog-static/static/css/pc_detailinline.min.css?v=a64ca628b5","https://static2.51cto.com/edu/blog/blog-static/static/css/pc_detail.min.css?v=2eae509705","https://cdn.51cto.com/jquery/jquery-2.2.4.min.js","https://static2.51cto.com/edu/center/js/interaction_iframe.js","https://cdn.51cto.com/jquery/swiper-4.5.3.js","https://cdn.51cto.com/svga/2.3.1/svga.min.js","https://static2.51cto.com/edu/blog/blog-static/static/js/pc_base.min.js?v=d06e4f1e8b","https://static2.51cto.com/edu/blog/blog-static/js/mprime.js?v=2cb70144db","https://static2.51cto.com/edu/blog/blog-static/static/js/pc_detail.min.js?v=a595de6881"], function() {
+            })
+    PsLoader.prefetch(["https://static2.51cto.com/edu/blog/blog-static/static/css/pc_base.min.css?v=449f0f91d6","https://static2.51cto.com/edu/blog/blog-static/static/css/pc_indexinline.min.css?v=b8118d4d63","https://static2.51cto.com/edu/blog/blog-static/static/css/pc_newIndexinline.min.css?v=56c90a8906","https://static2.51cto.com/edu/blog/blog-static/static/css/pc_listinline.min.css?v=1c6a752fde","https://static2.51cto.com/edu/blog/blog-static/static/css/pc_newListinline.min.css?v=a1051ef99f","https://static2.51cto.com/edu/blog/blog-static/static/css/pc_topicinline.min.css?v=24e8f67e65","https://static2.51cto.com/edu/blog/blog-static/static/css/pc_topicdetailinline.min.css?v=9d49bae709","https://static2.51cto.com/edu/blog/blog-static/static/css/pc_bloggerinline.min.css?v=5138b963c8","https://static2.51cto.com/edu/blog/blog-static/markdown/dist/js/main.js?v=12e5a1a2fe","https://static2.51cto.com/edu/blog/blog-static/static/js/pc_index_js.min.js?v=5331660aa2","https://static2.51cto.com/edu/blog/blog-static/static/js/pc_list_js.min.js?v=8973c321c1","https://static2.51cto.com/edu/blog/blog-static/static/js/pc_topic.min.js?v=873da4210c","https://static2.51cto.com/edu/blog/blog-static/static/js/pc_topic_static.min.js?v=8533cb9e02","https://static2.51cto.com/edu/blog/blog-static/static/js/pc_topicdetail.min.js?v=901345e7d5","https://static2.51cto.com/edu/blog/blog-static/static/js/pc_blogger_js.min.js?v=c7a4e3d003"]);
+    var Lazy = new PsLazy({
+        defaultImg: "https://s2.51cto.com/images/100/base/empty.png?x-oss-process=image/format,webp/ignore-error,1",
+        preLoad: 1.3,
+        complete: function(opt) {},
+    })
+</script>
+
+
+<div id="waf_nc_block" style="display: none;"><div class="waf-nc-mask"></div><div id="WAF_NC_WRAPPER" class="waf-nc-wrapper"><p class="waf-nc-title">访问验证</p><p class="waf-nc-description">为了更好的访问体验，请进行如下验证</p><p id="waf-nc-traceid" class="waf-nc-traceid-class"></p><div id="nocaptcha"></div></div></div><div style="background: url(&quot;https://static2.51cto.com/edu/blog/images/bg50.png&quot;) repeat; position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 10000000; display: none;"><div style="z-index:10000001;width:50px;height:50px;background:url(https://static2.51cto.com/edu/blog/images/loading2.gif) no-repeat center;background-size:50px 50px;position:absolute;left:50%;top:50%;margin-left:-25px;margin-top:-25px;"></div></div> <div class="publish-box"><a href="https://blog.51cto.com/activity-first-publish/index?utm_medium=popup"><img src="./Log4Qt个人整理的配置文件_51CTO博客_log4qt_files/firstPublishBanner1.png"></a> <i class="publish-close "></i></div></body></html>

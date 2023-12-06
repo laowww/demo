@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="zh-cn" style="--olcb-folder-code-block-max-height: 80vh; --cnb-code-bg: rgb(245, 245, 245); --cnb-code-font-size: 12px; --cnb-code-color: rgb(68, 68, 68);"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <meta name="description" content="log4j配置文件有三个主要的组件：Logger，Appender和Layout，分别为日志类型，日志输出目的地，日志输出格式。 1. 配置日志级别及appenderName log4j.rootLogger=[level],console,debugFileAppender,errorFileAp">
+    <meta property="og:description" content="log4j配置文件有三个主要的组件：Logger，Appender和Layout，分别为日志类型，日志输出目的地，日志输出格式。 1. 配置日志级别及appenderName log4j.rootLogger=[level],console,debugFileAppender,errorFileAp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="https://common.cnblogs.com/favicon.svg" type="image/svg+xml">
+    
+    <style>#home :not(.cnblogs_code):not(.cnblogs_Highlighter)>pre:not([highlighted]):not([class*="brush:"]) code:not(.hljs), :not(.cnblogs_code):not(.cnblogs_Highlighter)>pre:not([highlighted]):not([class*="brush:"]) code:not(.hljs) {background: rgb(245, 245, 245);
+        padding: 12px;
+        border: 1px solid rgb(204, 204, 204);
+        border-radius: 3px;
+        border-color: transparent;
+        color: rgb(68, 68, 68);
+        font-family: "Courier New", sans-serif;
+        font-size: 12px</style><link rel="stylesheet" href="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/blog-common.min.css">
+    
+
+    <link id="MainCss" rel="stylesheet" href="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/bundle-anothereon001.min.css">
+        <link id="highlighter-theme-cnblogs" type="text/css" rel="stylesheet" href="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/cnblogs.css">
+    
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/bundle-anothereon001-mobile.min.css">
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/deityjian/rss">
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/deityjian/rsd.xml">
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/deityjian/wlwmanifest.xml">
+    <script type="text/javascript" src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/encoder.js.下载"></script><script>
+        var currentBlogId = 504965;
+        var currentBlogApp = 'deityjian';
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'AnotherEon001';
+        var visitorUserId = '';
+        var hasCustomScript = false;
+        window.cb_enable_mathjax = false;
+        window.mathEngine = 0;
+        window.codeHighlightEngine = 1;
+        window.enableCodeLineNumber = false;
+        window.codeHighlightTheme = 'cnblogs';
+        window.darkModeCodeHighlightTheme = 'vs2015';
+        window.isDarkCodeHighlightTheme = false;
+        window.isDarkModeCodeHighlightThemeDark = true;
+        window.isDisableCodeHighlighter = false;
+        window.enableCodeThemeTypeFollowSystem = false;
+        window.enableMacStyleCodeBlock = false;
+    </script>
+        <script>
+            window.currentPostId = 12530019;
+            window.currentPostDateAdded = '2020-03-20 10:23';
+        </script>
+    <script src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+    <script src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/blog-common.min.js.下载"></script><style>.medium-zoom-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 300ms;
+  will-change: opacity;
+}
+
+.medium-zoom--opened .medium-zoom-overlay {
+  cursor: pointer;
+  cursor: zoom-out;
+  opacity: 1;
+}
+
+.medium-zoom-image {
+  cursor: pointer;
+  cursor: zoom-in;
+  /*
+    The `transition` is marked as "!important" for the animation to happen
+    even though it's overriden by another inline `transition` style attribute.
+
+    This is problematic with frameworks that generate inline styles on their
+    images (e.g. Gatsby).
+
+    See https://github.com/francoischalifour/medium-zoom/issues/110
+   */
+  transition: transform 300ms cubic-bezier(0.2, 0, 0.2, 1) !important;
+}
+
+.medium-zoom-image--hidden {
+  visibility: hidden;
+}
+
+.medium-zoom-image--opened {
+  position: relative;
+  cursor: pointer;
+  cursor: zoom-out;
+  will-change: transform;
+}
+</style><script id="hljs-script" src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/highlight.min.js.下载" type="text/javascript" async=""></script>
+    
+
+    
+<meta property="og:image" content="https://common.cnblogs.com/logo_square.png"></head>
+<body class="skin-anothereon001 has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a href="https://www.cnblogs.com/cmt/p/17520031.html" onclick="countCreativeClicks(&#39;C0-博客园&#39;)" target="_blank" rel="nofollow">
+            <div class="bannerbar forpc" style="background-size: contain;background-color:#1600f2;margin-left: -60px">
+                <img src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/35695-20231202120816588-519700597.png" onload="countCreativeImpressions(&#39;C0-博客园&#39;)">
+                
+                <span id="c0_impression" style="display:none"></span>
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile bannerbar-text-mobile formobile">
+                <a href="https://www.cnblogs.com/cmt/p/17520031.html" onclick="countCreativeClicks(&#39;M2-博客园&#39;)" rel="nofollow">
+                    <img src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/35695-20231123220526514-2040708602.png" alt="" onload="countCreativeImpressionsOnMobile(&#39;M2-博客园&#39;)">
+                    <span id="m2_impression" style="display:none"></span>
+                </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding">
+                    <a href="https://www.cnblogs.com/" title="开发者的网上家园" role="banner">
+                        <img src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/logo.svg" alt="博客园Logo">
+                    </a>
+                </li>
+                <li><a href="https://cnblogs.vip/">会员</a></li>
+                <li>
+                    <a href="https://news.cnblogs.com/" onclick="countClicks(&#39;nav&#39;, &#39;skin-navbar-news&#39;)">新闻</a>
+                </li>
+                <li>
+                    <a href="https://q.cnblogs.com/" onclick="countClicks(&#39;nav&#39;, &#39;skin-navbar-q&#39;)">博问</a>
+                </li>                              
+                <li>
+                    <a href="https://ing.cnblogs.com/" onclick="countClicks(&#39;nav&#39;, &#39;skin-navbar-ing&#39;)">闪存</a>
+                </li>
+                <li>
+                    <a href="https://edu.cnblogs.com/" onclick="countClicks(&#39;nav&#39;, &#39;skin-navbar-edu&#39;)">班级</a>
+                </li>
+                <li><a href="https://hh.hanghang.com/AIjingpinke" target="_blank">AI培训</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search dropdown" action="https://zzk.cnblogs.com/s" method="get" role="search">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="search" tabindex="3" autocomplete="off">
+                        <button id="zzk_search_button" onclick="window.navbarSearchManager.triggerActiveOption()">
+                            <img id="search_icon" class="focus-hidden" src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/search.svg" alt="搜索">
+                            <img class="hidden focus-visible" src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/enter.svg" alt="搜索">
+                        </button>
+                        <ul id="navbar_search_options" class="dropdown-menu quick-search-menu">
+                            <li tabindex="0" class="active" onclick="zzkSearch(event, document.getElementById(&#39;zzk_search_input&#39;).value)">
+                                <div class="keyword-wrapper">
+                                    <img src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/search.svg" alt="搜索">
+                                    <div class="keyword"></div>
+                                </div>
+                                <span class="search-area">所有博客</span>
+                            </li>
+                                    <li tabindex="1" onclick="zzkBlogSearch(event, &#39;deityjian&#39;, document.getElementById(&#39;zzk_search_input&#39;).value)">
+                                        <div class="keyword-wrapper">
+                                            <img src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/search.svg" alt="搜索">
+                                            <div class="keyword"></div>
+                                        </div>
+                                        <span class="search-area">当前博客</span>
+                                    </li>
+                        </ul>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔" style="display: none;">
+                        <img id="new_post_icon" class="navbar-icon" src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/newpost.svg" alt="写随笔">
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客" style="display: none;">
+                        <img id="myblog_icon" class="navbar-icon" src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/myblog.svg" alt="我的博客">
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息" style="display: none;">
+                        <img id="msg_icon" class="navbar-icon" src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/message.svg" alt="短消息">
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <a id="navbar_lite_mode_indicator" data-current-page="blog" style="display: none" href="javascript:void(0)" alt="简洁模式" title="简洁模式启用，您在访问他人博客时会使用简洁款皮肤展示">
+                        <img class="navbar-icon" src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/lite-mode-on.svg" alt="简洁模式">
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown" style="display: none;">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/avatar-default.svg" alt="用户头像">
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/lite-mode-check.svg" class="hide" style="display: none;"><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup" style="display: inline;">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()" style="display: inline;">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+
+    <div id="wrapper">
+    <div id="header">
+        
+<div id="top">
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/deityjian/">情陌人灬已不在</a>
+</h1>
+<div id="subtitle"></div>
+</div>
+<div id="sub"><div class="BlogStats">随笔 - 239, 文章 - 0, 评论 - 2, 阅读 - 
+<span title="总阅读数: 219957">
+21万</span></div>
+
+</div>
+
+
+
+
+    </div>
+    <div id="main_container">
+        <div id="main_content">
+            <div id="content">
+                <div id="post_detail">
+    <div class="post">
+        <h2>
+            
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/deityjian/p/12530019.html">
+    <span role="heading" aria-level="2">log4j.properties配置文件及详解</span>
+    
+
+
+
+</a><button class="cnblogs-toc-button" title="显示目录导航" aria-expanded="false"></button>
+
+        </h2>
+        <div class="postbody">
+            <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>log4j配置文件有三个主要的组件：Logger，Appender和Layout，分别为日志类型，日志输出目的地，日志输出格式。</p>
+<h3>1. 配置日志级别及appenderName<button class="cnblogs-toc-button" title="显示目录导航" aria-expanded="false"></button></h3>
+<div class="cnblogs_code">
+<pre>log4j.rootLogger=[level],console,debugFileAppender,errorFileAppender,...</pre>
+</div>
+<p>注：其中&nbsp;[level]&nbsp;是日志输出级别：FATAL、ERROR、WARN、INFO、DEBUG 五个级别，通过定义的级别，你可以控制程序中的日志输出，例：如果定义了ERROR级别，程序中只有FARAL、ERROR 级别的 log 会被输出。</p>
+<ul>
+<li>FATAL：致命错误。</li>
+<li>ERROR：严重错误，主要是程序的错误。</li>
+<li>WARN：一般警告，比如session丢失。</li>
+<li>INFO：一般要显示的信息，比如登录退出。</li>
+<li>DEBUG：程序的调试信息。</li>
+</ul>
+<h3>2. Log4j提供的输出目的地有以下几种：<button class="cnblogs-toc-button" title="显示目录导航" aria-expanded="false"></button></h3>
+<p>log4j.appender.appenderName= 输出目的地 (这里的appenderName是在前面定义的，可任意起名)</p>
+<ul>
+<li>org.apache.log4j.ConsoleAppender（控制台）</li>
+<li>org.apache.log4j.FileAppender（文件）</li>
+<li>org.apache.log4j.DailyRollingFileAppender（每天产生一个日志文件）</li>
+<li>org.apache.log4j.RollingFileAppender（文件大小到达指定尺寸的时候产生一个新的文件）</li>
+<li>org.apache.log4j.WriterAppender（将日志信息以流格式发送到任意指定的地方）</li>
+</ul>
+<h3>3. 配置布局类型<button class="cnblogs-toc-button" title="显示目录导航" aria-expanded="false"></button></h3>
+<p>log4j.appender.appenderName.layout = 布局类型(设置布局类型)&nbsp;</p>
+<p>Log4j提供的layout有以下4种：</p>
+<ul>
+<li>org.apache.log4j.HTMLLayout（以HTML表格形式布局）</li>
+<li>org.apache.log4j.PatternLayout（可以灵活地指定布局模式）</li>
+<li>org.apache.log4j.SimpleLayout（包含日志信息的级别和信息字符串）</li>
+<li>org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等等信息）</li>
+</ul>
+<h3>4. 配置符号所代表的含义：log4j.appender.根.layout.ConversionPattern=<button class="cnblogs-toc-button" title="显示目录导航" aria-expanded="false"></button></h3>
+<ul>
+<li>&nbsp;%p：输出日志信息的优先级，即FATAL、ERROR、WARN、INFO、DEBUG。</li>
+<li>&nbsp;%d：输出日志日期或时间，默认格式为ISO8601，也可以在其后指定格式。例：%d{yyyy MMM dd HH:mm:ss,SSS}，输出：2000年01月01日 00：00：10,000</li>
+<li>&nbsp;%c：输出日志信息所属的类目，通常就是所在类的全名。</li>
+<li>&nbsp;%F：输出日志消息产生时所在的文件名称</li>
+<li>&nbsp;%L：输出代码中的行号。</li>
+<li>&nbsp;%l：输出日志事件的发生位置，包括全类名方法名、发生的线程，以及在代码中的行号，相当于%c(%F:%L)的组合，但这个组合不包括方法名。例：cn.xiwh.test.Testlog4j.main(TestLog4j.java:10)&nbsp;</li>
+<li>&nbsp;%m：输出代码中指定产生的日志的具体信息。</li>
+<li>&nbsp;%n：输出一个回车换行符，Windows平台为"\r\n"，Unix平台为"\n"输出日志信息换行。</li>
+<li>&nbsp;%r：输出自应用启动到输出该log信息耗费的毫秒数。</li>
+<li>&nbsp;%t：输出产生该日志事件的线程名。</li>
+<li>&nbsp;%x：输出和当前线程相关联的NDC(嵌套诊断环境),尤其用到像java servlets这样的多客户多线程的应用中。</li>
+<li>&nbsp;%%：输出一个"%"字符。</li>
+<li>[QC]：是log信息的开头，可以为任意字符，一般为项目简称。</li>
+<li>-X号：X信息输出时左对齐。</li>
+</ul>
+<p>可以在%与模式字符之间加上修饰符来控制其最小宽度、最大宽度、及文本的对齐方式。例：</p>
+<p>1). %20c：指定输出类的名称，最小的宽度是20，如果类的名称小于20，默认的情况下右对齐。</p>
+<p>2). %-20c：指定输出类的名称，最小的宽度是20，如果类的名称小于20，"-"号指定左对齐。&nbsp;</p>
+<p>3). %.30c：指定输出类的名称，最大的宽度是30，如果类的名称大于30就会将左边多出的字符截掉，但小于30也不会有空格。</p>
+<p>4). %20.30c：如果类的名称小于20就补空格并且右对齐，如果其名称大于30就从左边较远输出的字符截掉。</p>
+<h3>5. 配置文件&nbsp;log4j.properties<button class="cnblogs-toc-button" title="显示目录导航" aria-expanded="false"></button></h3>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: rgba(0, 0, 0, 1)">### 配置日志级别及appenderName ###
+log4j.rootLogger</span>=error,console,debugFileAppender,errorFileAppender,dailyRollingFile,rollingFile,<span style="color: rgba(0, 0, 0, 1)">mail
+
+### 配置输出信息到控制抬 ###
+log4j.appender.console</span>=<span style="color: rgba(0, 0, 0, 1)">org.apache.log4j.ConsoleAppender
+#默认值是System.out，指定输出控制台。
+log4j.appender.console.Target</span>=<span style="color: rgba(0, 0, 0, 1)">System.out
+log4j.appender.console.layout</span>=<span style="color: rgba(0, 0, 0, 1)">org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern</span>=<span style="color: rgba(128, 0, 0, 1); font-weight: bold">[</span><span style="color: rgba(128, 0, 0, 1)">%-5p</span><span style="color: rgba(128, 0, 0, 1); font-weight: bold">]</span> <span style="color: rgba(128, 0, 0, 1); font-weight: bold">[</span><span style="color: rgba(128, 0, 0, 1)">%d{yyyy-MM-dd HH:mm:ss,SSS}</span><span style="color: rgba(128, 0, 0, 1); font-weight: bold">]</span><span style="color: rgba(0, 0, 0, 1)"> method:%l%n%m%n
+
+### 配置输出DEBUG级别以上的日志文件到&gt; D://logs/debug.log ###
+log4j.appender.debugFileAppender</span>=<span style="color: rgba(0, 0, 0, 1)">org.apache.log4j.FileAppender
+log4j.appender.debugFileAppender.File</span>=<span style="color: rgba(0, 0, 0, 1)">D://logs/debug.log
+log4j.appender.debugFileAppender.Append</span>=<span style="color: rgba(0, 0, 0, 1)">true
+log4j.appender.debugFileAppender.Threshold</span>=<span style="color: rgba(0, 0, 0, 1)">DEBUG 
+log4j.appender.debugFileAppender.layout</span>=<span style="color: rgba(0, 0, 0, 1)">org.apache.log4j.PatternLayout
+log4j.appender.debugFileAppender.layout.ConversionPattern</span>=%-d{yyyy-MM-dd HH:mm:ss}  <span style="color: rgba(128, 0, 0, 1); font-weight: bold">[</span><span style="color: rgba(128, 0, 0, 1)"> %t:%r </span><span style="color: rgba(128, 0, 0, 1); font-weight: bold">]</span> - <span style="color: rgba(128, 0, 0, 1); font-weight: bold">[</span><span style="color: rgba(128, 0, 0, 1)"> %p </span><span style="color: rgba(128, 0, 0, 1); font-weight: bold">]</span><span style="color: rgba(0, 0, 0, 1)">  %m%n
+
+### 配置输出ERROR级别以上的日志文件到&gt; D://logs/error.log ###
+log4j.appender.errorFileAppender</span>=<span style="color: rgba(0, 0, 0, 1)">org.apache.log4j.FileAppender
+log4j.appender.errorFileAppender.File</span>=<span style="color: rgba(0, 0, 0, 1)">D://logs/error.log 
+log4j.appender.errorFileAppender.Append</span>=<span style="color: rgba(0, 0, 0, 1)">true
+log4j.appender.errorFileAppender.Threshold</span>=<span style="color: rgba(0, 0, 0, 1)">ERROR 
+log4j.appender.errorFileAppender.layout</span>=<span style="color: rgba(0, 0, 0, 1)">org.apache.log4j.PatternLayout
+log4j.appender.errorFileAppender.layout.ConversionPattern</span>=%-d{yyyy-MM-dd HH:mm:ss}  <span style="color: rgba(128, 0, 0, 1); font-weight: bold">[</span><span style="color: rgba(128, 0, 0, 1)"> %t:%r </span><span style="color: rgba(128, 0, 0, 1); font-weight: bold">]</span> - <span style="color: rgba(128, 0, 0, 1); font-weight: bold">[</span><span style="color: rgba(128, 0, 0, 1)"> %p </span><span style="color: rgba(128, 0, 0, 1); font-weight: bold">]</span><span style="color: rgba(0, 0, 0, 1)">  %m%n
+
+### 配置输出DEBUG级别以上的日志文件到&gt; D://logs/debug.log 并且每天都创建一个文件 ###
+log4j.appender.dailyRollingFile</span>=<span style="color: rgba(0, 0, 0, 1)">org.apache.log4j.DailyRollingFileAppender
+log4j.appender.dailyRollingFile.File</span>=<span style="color: rgba(0, 0, 0, 1)">D://logs/debug.log
+log4j.appender.dailyRollingFile.Append</span>=<span style="color: rgba(0, 0, 0, 1)">true
+log4j.appender.dailyRollingFile.Threshold</span>=<span style="color: rgba(0, 0, 0, 1)">DEBUG
+log4j.appender.dailyRollingFile.layout</span>=<span style="color: rgba(0, 0, 0, 1)">org.apache.log4j.PatternLayout
+log4j.appender.dailyRollingFile.layout.ConversionPattern</span>=%-d{yyyy-MM-dd HH:mm:ss}  <span style="color: rgba(128, 0, 0, 1); font-weight: bold">[</span><span style="color: rgba(128, 0, 0, 1)"> %t:%r </span><span style="color: rgba(128, 0, 0, 1); font-weight: bold">]</span> - <span style="color: rgba(128, 0, 0, 1); font-weight: bold">[</span><span style="color: rgba(128, 0, 0, 1)"> %p </span><span style="color: rgba(128, 0, 0, 1); font-weight: bold">]</span><span style="color: rgba(0, 0, 0, 1)">  %m%n
+
+### 配置输出DEBUG级别以上的日志文件到&gt; D://logs/debugRolling.log 且大小到达指定尺寸的时候产生一个新的文件 ###
+log4j.appender.rollingFile</span>=<span style="color: rgba(0, 0, 0, 1)">org.apache.log4j.RollingFileAppender
+#指定消息输出到&gt; D://logs/debugRolling.log文件
+log4j.appender.rollingFile.File</span>=<span style="color: rgba(0, 0, 0, 1)">D://logs/debugRolling.log
+#默认值是true，即将消息增加到指定文件中，false指将消息覆盖指定的文件内容。
+log4j.appender.rollingFile.Append</span>=<span style="color: rgba(0, 0, 0, 1)">true
+#指定日志消息的输出最低层次
+log4j.appender.rollingFile.Threshold</span>=<span style="color: rgba(0, 0, 0, 1)">DEBUG
+#后缀可以是KB、MB或者是GB，在日志文件到达该大小时，将会自动滚动，即将原来的内容移到debug.log.1文件。
+log4j.appender.rollingFile.MaxFileSize</span>=<span style="color: rgba(0, 0, 0, 1)">10KB
+#指定可以产生的滚动文件的最大数
+log4j.appender.rollingFile.MaxBackupIndex</span>=1<span style="color: rgba(0, 0, 0, 1)">
+log4j.appender.rollingFile.layout</span>=<span style="color: rgba(0, 0, 0, 1)">org.apache.log4j.PatternLayout
+log4j.appender.rollingFile.layout.ConversionPattern</span>=<span style="color: rgba(128, 0, 0, 1); font-weight: bold">[</span><span style="color: rgba(128, 0, 0, 1)">framework</span><span style="color: rgba(128, 0, 0, 1); font-weight: bold">]</span> %d - %c -%-4r <span style="color: rgba(128, 0, 0, 1); font-weight: bold">[</span><span style="color: rgba(128, 0, 0, 1)">%t</span><span style="color: rgba(128, 0, 0, 1); font-weight: bold">]</span><span style="color: rgba(0, 0, 0, 1)"> %-5p %c %x - %m%n
+
+### 配置输出到邮件 ###
+log4j.appender.mail</span>=<span style="color: rgba(0, 0, 0, 1)">org.apache.log4j.net.SMTPAppender
+# 日志的错误级别
+log4j.appender.mail.Threshold</span>=<span style="color: rgba(0, 0, 0, 1)">DEBUG
+# 缓存文件大小，日志达到10K时发送Email
+log4j.appender.mail.BufferSize</span>=10<span style="color: rgba(0, 0, 0, 1)">
+# 发送邮件的服务器
+log4j.appender.mail.SMTPHost</span>=smtp.163<span style="color: rgba(0, 0, 0, 1)">.com
+# 邮件的标题
+log4j.appender.mail.Subject</span>=<span style="color: rgba(0, 0, 0, 1)">Log4J DebugMessage
+# 邮箱地址
+log4j.appender.mail.SMTPUsername</span>=test@163<span style="color: rgba(0, 0, 0, 1)">.com
+# 密码
+log4j.appender.mail.SMTPPassword</span>=<span style="color: rgba(0, 0, 0, 1)">test
+# 发件人
+log4j.appender.mail.From</span>=test@163<span style="color: rgba(0, 0, 0, 1)">.com
+# 收件人
+log4j.appender.mail.To</span>=receive@163<span style="color: rgba(0, 0, 0, 1)">.com
+# 日志PatternLayout
+log4j.appender.mail.layout</span>=<span style="color: rgba(0, 0, 0, 1)">org.apache.log4j.PatternLayout
+# 日志的格式
+log4j.appender.mail.layout.ConversionPattern</span>=<span style="color: rgba(128, 0, 0, 1); font-weight: bold">[</span><span style="color: rgba(128, 0, 0, 1)">DebugMessage</span><span style="color: rgba(128, 0, 0, 1); font-weight: bold">]</span> %d - %c -%-4r <span style="color: rgba(128, 0, 0, 1); font-weight: bold">[</span><span style="color: rgba(128, 0, 0, 1)">%t</span><span style="color: rgba(128, 0, 0, 1); font-weight: bold">]</span> %-5p %c %x - %m%n</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+</div>
+<div class="clear"></div>
+<div id="blog_post_info_block" role="contentinfo">
+
+
+<div id="BlogPostCategory">
+    分类: 
+            <a href="https://www.cnblogs.com/deityjian/category/1484696.html" target="_blank">开发工具</a>
+</div>
+
+    <div id="blog_post_info">
+<div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(12530019,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+        <a id="green_channel_follow" onclick="follow(&#39;bf35259e-3ad4-4aa3-3b79-08d6b25131ed&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareManager.wechatShare()"><img src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/deityjian/" target="_blank"><img src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/20190327182728.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/deityjian/">情陌人灬已不在</a>
+            <br>
+            <a href="https://home.cnblogs.com/u/deityjian/followers/">粉丝 - <span class="follower-count">9</span></a>
+            <a href="https://home.cnblogs.com/u/deityjian/followees/">关注 - <span class="following-count">8</span></a><br>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow" class="follow-tip">
+                <a href="javascript:void(0);" onclick="follow(&#39;bf35259e-3ad4-4aa3-3b79-08d6b25131ed&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(12530019,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(12530019,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+        <div id="vip_tip"><a class="tip" href="https://cnblogs.vip/" target="_blank">升级成为会员</a></div>
+</div>
+
+<script type="text/javascript">
+    currentDiggType = 0;
+</script>
+</div>
+    <div class="clear"></div>
+    <div id="post_next_prev">
+
+    <a href="https://www.cnblogs.com/deityjian/p/12525946.html" class="p_n_p_prefix">« </a> 上一篇：    <a href="https://www.cnblogs.com/deityjian/p/12525946.html" data-featured-image="" title="发布于 2020-03-19 17:56">HttpURLconnection的介绍</a>
+    <br>
+    <a href="https://www.cnblogs.com/deityjian/p/12532126.html" class="p_n_p_prefix">» </a> 下一篇：    <a href="https://www.cnblogs.com/deityjian/p/12532126.html" data-featured-image="" title="发布于 2020-03-20 15:39">HttpURLConnection 中Cookie 使用</a>
+
+</div>
+</div>
+        </div>
+        <p class="postfoot">
+            posted on 
+<span id="post-date" data-last-update-days="1356.2239065447163" data-date-created="BlogServer.Application.Dto.BlogPost.BlogPostDto" data-date-updated="2020-03-20 10:23" aria-expanded="false">2020-03-20 10:23</span>&nbsp;
+<a href="https://www.cnblogs.com/deityjian/">情陌人灬已不在</a>&nbsp;
+阅读(<span id="post_view_count">460</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=12530019" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(12530019);return false;">收藏</a>&nbsp;
+<a href="javascript:void(0)" onclick="reportManager.report({ currentUserId: &#39;&#39;, targetType: &#39;blogPost&#39;, targetId: &#39;12530019&#39;, targetLink: &#39;https://www.cnblogs.com/deityjian/p/12530019.html&#39;, title: &#39;log4j.properties配置文件及详解&#39; })">举报</a>
+
+        </p>
+    </div>
+</div>
+
+<script>
+    var cb_entryId = 12530019, cb_entryCreatedDate = '2020-03-20 10:23', cb_postType = 1, cb_postTitle = 'log4j.properties配置文件及详解';
+    var allowComments = true, cb_blogId = 504965, cb_blogApp = 'deityjian', cb_blogUserGuid = 'bf35259e-3ad4-4aa3-3b79-08d6b25131ed';
+    mermaidRender.render()
+    markdown_highlight()
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");    
+</script>
+<a id="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav">
+            <a class="comment-nav-left" href="https://www.cnblogs.com/cmt/p/17520031.html" target="_blank">会员救园</a>
+        <div class="comment-nav-right">
+            <span id="span_refresh_tips"></span><a href="https://www.cnblogs.com/deityjian/p/12530019.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/deityjian/p/12530019.html#top">返回顶部</a>
+        </div>
+    </div>
+    <div id="comment_form_container"><div class="login_tips">
+    登录后才能查看或发表评论，立即 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return account.login(&#39;!comments&#39;);">登录</a> 或者
+    <a href="https://www.cnblogs.com/">逛逛</a> 博客园首页
+</div>
+</div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+        <div id="cnblogs_ch"><a href="https://www.cnblogs.com/cmt/p/17520031.html" target="_blank" onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;ad&#39;, &#39;event_label&#39;: &#39;T2-会员救园&#39;})">【推荐】会员救园：园子走出困境的唯一希望，到年底有多少会员</a><br><a href="https://click.aliyun.com/m/1000384995/" target="_blank" onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;ad&#39;, &#39;event_label&#39;: &#39;T2-阿里云&#39;})">【推荐】阿里云热销爆款云服务器，新老同享一口价99元/年</a><br></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card" style="display: none;">
+            <div id="div-gpt-ad-1592365906576-0" style="width: 300px; height: 250px;"></div>
+    </div>
+    <div id="under_post_card1"><div class="under-post-card">
+<b>编辑推荐：</b>
+<br>
+
+· <a href="https://www.cnblogs.com/hobbybear/p/17875341.html" target="_blank">一次 elasticsearch 查询瞬间超时案例分析</a>
+    <br>
+· <a href="https://www.cnblogs.com/huangxincheng/p/17874509.html" target="_blank">聊一聊 .NET高级调试 中的一些内存术语</a>
+    <br>
+· <a href="https://www.cnblogs.com/grey-wolf/p/17871750.html" target="_blank">安卓端出现 https 请求失败的一次问题排查</a>
+    <br>
+· <a href="https://www.cnblogs.com/WindrunnerMax/p/17871444.html" target="_blank">初探 webpack 之单应用多端构建</a>
+    <br>
+· <a href="https://www.cnblogs.com/pengze0902/p/17866309.html" target="_blank">深入解析 C# List &lt; T &gt; 的源码</a>
+    <br>
+</div></div>
+    <div id="under_post_card2"><div class="itnews under-post-card">
+    <b>阅读排行：</b>
+    <br>
+ ·          <a href="https://www.cnblogs.com/kimiliucn/p/17877105.html" target="_blank">如何检测Windows服务停止后自动启动？自动运行.bat批处理文件？</a>
+        <br>
+ ·          <a href="https://www.cnblogs.com/broadm/p/17875559.html" target="_blank">基于DotNetty实现自动发布 - 通信实现</a>
+        <br>
+ ·          <a href="https://www.cnblogs.com/tangyanzhi1111/p/17876898.html" target="_blank">.NET8极致性能优化AOT</a>
+        <br>
+ ·          <a href="https://www.cnblogs.com/hobbybear/p/17875341.html" target="_blank">一次elasticsearch 查询瞬间超时案例分析</a>
+        <br>
+ ·          <a href="https://www.cnblogs.com/zzyang/p/17876807.html" target="_blank">新来个架构师，把Xxl-Job原理讲的炉火纯青</a>
+        <br>
+</div></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+        var commentManager = new blogCommentManager();
+        commentManager.renderComments(0);
+        fixPostBody();
+        window.footnoteTipManager.generateFootnoteTips();
+
+            window.tocManager.displayDisableTocTips = false;
+            window.tocManager.generateToc();
+            
+                setTimeout(function() { countViews(cb_blogId, cb_entryId); }, 50);
+            
+            deliverT2();
+            deliverC1C2();
+            loadNewsAndKb();
+            
+                LoadPostCategoriesTags(cb_blogId, cb_entryId);
+            
+            LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+            GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+            loadOptUnderPost();
+            GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+                </script>
+</div>
+
+
+
+            </div>
+        </div>
+        <div id="leftmenu">
+            
+<h3>导航</h3>
+<ul>
+    <li>
+        <a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+
+    </li>
+    <li>
+        
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/deityjian/">
+首页</a>
+
+    </li>
+    <li>
+        
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+
+    </li>
+    <li>
+        
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E6%83%85%E9%99%8C%E4%BA%BA%E7%81%AC%E5%B7%B2%E4%B8%8D%E5%9C%A8">
+联系</a>
+    </li>
+    <li>
+        
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/deityjian/rss/">
+订阅</a>
+        
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/deityjian/rss/">
+    <img src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/xml.gif" alt="订阅">
+</a>
+    </li>
+    <li>
+        
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+
+    </li>
+</ul>
+
+
+            <div id="blog-calendar" style="">
+
+<table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar" border="0">
+    <tbody>
+        <tr>
+            <td colspan="7">
+                <table class="CalTitle" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2023/11/06&#39;); return false;">&lt;</a>
+                            </td>
+                            <td align="center">2023年12月</td>
+                            <td align="right" class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2024/01/06&#39;); return false;">&gt;</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    <tr>
+        <th class="CalDayHeader" align="center" abbr="日" scope="col">日</th>
+        <th class="CalDayHeader" align="center" abbr="一" scope="col">一</th>
+        <th class="CalDayHeader" align="center" abbr="二" scope="col">二</th>
+        <th class="CalDayHeader" align="center" abbr="三" scope="col">三</th>
+        <th class="CalDayHeader" align="center" abbr="四" scope="col">四</th>
+        <th class="CalDayHeader" align="center" abbr="五" scope="col">五</th>
+        <th class="CalDayHeader" align="center" abbr="六" scope="col">六</th>
+    </tr>
+            <tr>
+                            <td class="CalOtherMonthDay" align="center">26</td>
+                            <td class="CalOtherMonthDay" align="center">27</td>
+                            <td class="CalOtherMonthDay" align="center">28</td>
+                            <td class="CalOtherMonthDay" align="center">29</td>
+                            <td class="CalOtherMonthDay" align="center">30</td>
+                        <td class="" align="center">
+                            1
+                        </td>
+                    <td class="CalWeekendDay" align="center">
+                        2
+                    </td>
+            </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            3
+                        </td>
+                            <td class="" align="center">
+                                4
+                            </td>
+                            <td class="" align="center">
+                                5
+                            </td>
+                            <td class="CalTodayDay" align="center">
+                                6
+                            </td>
+                            <td class="" align="center">
+                                7
+                            </td>
+                            <td class="" align="center">
+                                8
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            9
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            10
+                        </td>
+                            <td class="" align="center">
+                                11
+                            </td>
+                            <td class="" align="center">
+                                12
+                            </td>
+                            <td class="" align="center">
+                                13
+                            </td>
+                            <td class="" align="center">
+                                14
+                            </td>
+                            <td class="" align="center">
+                                15
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            16
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            17
+                        </td>
+                            <td class="" align="center">
+                                18
+                            </td>
+                            <td class="" align="center">
+                                19
+                            </td>
+                            <td class="" align="center">
+                                20
+                            </td>
+                            <td class="" align="center">
+                                21
+                            </td>
+                            <td class="" align="center">
+                                22
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            23
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            24
+                        </td>
+                            <td class="" align="center">
+                                25
+                            </td>
+                            <td class="" align="center">
+                                26
+                            </td>
+                            <td class="" align="center">
+                                27
+                            </td>
+                            <td class="" align="center">
+                                28
+                            </td>
+                            <td class="" align="center">
+                                29
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            30
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            31
+                        </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                1
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                2
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                3
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                4
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                5
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            6
+                        </td>
+                </tr>
+    </tbody>
+</table></div><script>loadBlogDefaultCalendar();</script>
+            <div id="sidebar_news" class="newsItem">
+    <meta name="vs_showGrid" content="False">
+<h3>公告</h3>
+<div id="blog-news">    
+    <div id="sidebar_news_content">
+<div id="profile_block">
+    昵称：
+    <a href="https://home.cnblogs.com/u/deityjian/">
+        情陌人灬已不在
+    </a>
+    <br>
+    园龄：
+    <a href="https://home.cnblogs.com/u/deityjian/" title="入园时间：2019-03-27">
+        4年8个月
+    </a>
+    <br>
+    粉丝：
+    <a class="follower-count" href="https://home.cnblogs.com/u/deityjian/followers/">
+        9
+    </a>
+    <br>
+    关注：
+    <a class="folowing-count" href="https://home.cnblogs.com/u/deityjian/followees/">
+        8
+    </a>
+    <div id="p_b_follow" class="follow-tip">
+<a href="javascript:void(0)" onclick="follow(&#39;bf35259e-3ad4-4aa3-3b79-08d6b25131ed&#39;)">+加关注</a></div>
+    <script>getFollowStatus('bf35259e-3ad4-4aa3-3b79-08d6b25131ed');</script>
+</div>
+</div>
+</div>
+<script>loadBlogNews();</script>
+
+ 
+</div>
+<div id="sidebar_c3"></div>
+            <div id="blog-sidecolumn"><!-- 搜索 -->
+<div id="sidebar_search" class="sidebar-block">
+    <div class="mySearch my-search">
+        <h3 class="catListTitle">搜索</h3>
+        <div id="sidebar_search_box">
+            <div id="widget_my_zzk" class="div_my_zzk">
+                <input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk">
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<!-- 常用链接 -->
+<div id="sidebar_shortcut" class="sidebar-block">
+<h3 class="catListTitle">
+常用链接
+</h3>
+<ul>
+    <li><a href="https://www.cnblogs.com/deityjian/p/" title="我的博客的随笔列表">我的随笔</a></li>
+<li><a href="https://www.cnblogs.com/deityjian/MyComments.html" title="我的发表过的评论列表">我的评论</a></li>
+<li><a href="https://www.cnblogs.com/deityjian/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li>
+<li><a href="https://www.cnblogs.com/deityjian/comments" title="我的博客的评论列表">最新评论</a></li>
+<li><a href="https://www.cnblogs.com/deityjian/tag/" title="我的博客的标签列表">我的标签</a></li>
+
+</ul>
+</div>
+
+<!-- 最新随笔 -->
+<div id="sidebar_recentposts" class="sidebar-block">
+<h3 class="catListTitle">最新随笔</h3>
+<div class="RecentComment" id="RecentPosts">
+    <ul style="word-break:break-all">
+                <li>
+                    
+<a href="https://www.cnblogs.com/deityjian/p/16391025.html">1.Java 泛型详解</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/deityjian/p/16387420.html">2.Hashtable、HashMap、TreeMap</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/deityjian/p/16387402.html">3.HashSet、LinkedHashSet、TreeSet</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/deityjian/p/16387224.html">4.Vector源码解析</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/deityjian/p/16385758.html">5.ArrayList和LinkedList</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/deityjian/p/16378076.html">6.java中String的格式化format</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/deityjian/p/14297009.html">7.Hadoop源码之Configuration</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/deityjian/p/14267452.html">8.PostgreSQL隐藏字段</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/deityjian/p/14267074.html">9.PostgreSQL杀掉死锁的链接</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/deityjian/p/14216476.html">10.Log4j.properties配置详解</a>
+
+                </li>
+    </ul>
+</div></div>
+
+<!-- 我的标签 -->
+<div id="sidebar_toptags" class="sidebar-block"></div>
+
+<!-- 积分与排名 -->
+<div id="sidebar_scorerank" class="sidebar-block"><h3>积分与排名</h3>
+<ul>
+    <li>
+        积分 - 
+152282
+    </li>
+    <li>
+        排名 - 
+8357
+    </li>
+</ul></div>
+
+<!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
+<div id="sidebar_categories">
+
+    <h3>
+        
+    <a class="sidebar-card-title-a" href="https://www.cnblogs.com/deityjian/post-categories">随笔分类</a>
+
+
+
+    </h3>
+    <ul>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1539303.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">commons工具(7)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1602148.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">Git(3)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1647198.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">Hadoop(3)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1752528.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">hive(3)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1484699.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">HTTP(8)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1484697.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">javaDOC(1)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1482673.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">javaWEB(20)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1468255.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">Java并发编程(17)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1519059.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">Java反射(2)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1528877.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">Java基础(31)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1603998.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">java集合(9)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1488614.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">JSON(4)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1676824.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">Jsoup(20)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1842890.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">JVM(7)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1472761.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">mybatis(13)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1468246.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">MySQL(3)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1915120.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">PostgreSQL(2)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1566808.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">Quartz(6)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1453634.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">shiro(7)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1486313.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">spring(22)</a>
+
+            </li>
+            <li data-category-list-item-visible="false" style="display: none">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1484698.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">SpringBoot(20)</a>
+
+            </li>
+            <li data-category-list-item-visible="false" style="display: none">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1543666.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">SpringMVC(18)</a>
+
+            </li>
+            <li data-category-list-item-visible="false" style="display: none">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1468250.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">导入导出Excel(1)</a>
+
+            </li>
+            <li data-category-list-item-visible="false" style="display: none">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1484696.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">开发工具(3)</a>
+
+            </li>
+            <li data-category-list-item-visible="false" style="display: none">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1469082.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">设计模式(1)</a>
+
+            </li>
+            <li data-category-list-item-visible="false" style="display: none">
+                
+<a href="https://www.cnblogs.com/deityjian/category/1492850.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">文件IO(5)</a>
+
+            </li>
+        <li><a href="javascript:void(0)" onclick="sideColumnManager.loadMore(this)">更多</a></li>
+    </ul>
+    <h3>
+        
+随笔档案
+
+
+    </h3>
+    <ul>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2022/06.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2022年6月(6)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2021/01.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2021年1月(3)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2020/12.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2020年12月(2)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2020/11.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2020年11月(7)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2020/10.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2020年10月(1)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2020/09.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2020年9月(8)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2020/07.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2020年7月(3)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2020/05.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2020年5月(1)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2020/04.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2020年4月(6)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2020/03.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2020年3月(39)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2020/02.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2020年2月(2)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2019/12.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年12月(2)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2019/11.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年11月(4)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2019/10.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年10月(19)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2019/09.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年9月(37)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2019/08.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年8月(36)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2019/07.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年7月(1)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2019/06.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年6月(42)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2019/05.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年5月(12)</a>
+
+            </li>
+            <li data-category-list-item-visible="true" style="display: block">
+                
+<a href="https://www.cnblogs.com/deityjian/archive/2019/04.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年4月(8)</a>
+
+            </li>
+        
+    </ul>
+</div>
+
+<!-- 最新评论 -->
+<!-- 阅读排行榜 -->
+<div id="sidebar_topviewedposts" class="sidebar-block">
+<div id="topview_posts_wrap">
+    <h3 class="catListTitle">
+        <a href="https://www.cnblogs.com/deityjian/most-viewed" class="sidebar-card-title-a">
+    阅读排行榜
+</a>
+
+    </h3>
+    <div id="TopViewPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/deityjian/p/11447721.html">
+                            1. Spring之ClassPathResource加载资源文件(21454)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/deityjian/p/10908739.html">
+                            2. 工厂模式简介和应用场景(14551)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/deityjian/p/11452295.html">
+                            3. datetime和timestamp的区别(14026)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/deityjian/p/11370630.html">
+                            4. Java中的比较器（排序）(13250)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/deityjian/p/11106981.html">
+                            5. FileUtils常用方法 - commons-io常用工具类(13126)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div></div>
+
+<!-- 评论排行榜 -->
+<div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+    <h3 class="catListTitle">
+        <a href="https://www.cnblogs.com/deityjian/most-commented" class="sidebar-card-title-a">评论排行榜</a>
+
+    </h3>
+    <div id="TopFeedbackPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/deityjian/p/11452295.html">
+                            1. datetime和timestamp的区别(1)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/deityjian/p/11370630.html">
+                            2. Java中的比较器（排序）(1)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div></div>
+
+<!-- 推荐排行榜 -->
+<div id="sidebar_topdiggedposts" class="sidebar-block">
+<div id="topdigg_posts_wrap">
+    <div class="catListView">
+        <h3 class="catListTitle">
+            <a href="https://www.cnblogs.com/deityjian/most-liked" class="sidebar-card-title-a">推荐排行榜</a>
+
+        </h3>
+        <div id="TopDiggPostsBlock">
+            <ul style="word-break: break-all">
+                        <li>
+                            <a href="https://www.cnblogs.com/deityjian/p/12518369.html">
+                                1. 防止XSS 攻击集成springboot(1)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/deityjian/p/12487227.html">
+                                2. SpringMVC的拦截器和过滤器的区别(1)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/deityjian/p/12485134.html">
+                                3. spring boot 2.0.0 + shiro + redis实现前后端分离的项目(1)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/deityjian/p/11680784.html">
+                                4. Quartz任务调度(4)JobListener分版本超详细解析(1)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/deityjian/p/11452295.html">
+                                5. datetime和timestamp的区别(1)
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+</div></div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap" class="RecentComment">
+    <h3 class="catListTitle"><a href="https://www.cnblogs.com/deityjian/comments" class="sidebar-card-title-a">最新评论</a></h3>    
+    <div class="RecentCommentBlock">
+        <ul>
+                <li class="recent_comment_title"><a href="https://www.cnblogs.com/deityjian/p/11452295.html">1. Re:datetime和timestamp的区别</a></li>
+                <li class="recent_comment_body"><ol start="3">
+<li>两位数字格式，范围为1-99，1-69被转化为20**（例如：1转化为2001），70~99被转化为19**</li>
+</ol>
+</li>
+                <li class="recent_comment_author">--yggt</li>
+                <li class="recent_comment_title"><a href="https://www.cnblogs.com/deityjian/p/11370630.html">2. Re:Java中的比较器（排序）</a></li>
+                <li class="recent_comment_body"><p>很清楚</p>
+</li>
+                <li class="recent_comment_author">--弘666</li>
+        </ul>
+    </div>
+</div></div>
+
+
+</div>
+            <script>loadBlogSideColumn();</script>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="footer">
+        <p id="footer">
+	Powered by: 
+	<br>
+	
+	<a href="https://www.cnblogs.com/" id="footer_site_link">博客园</a>
+	<br>
+	Copyright © 2023 情陌人灬已不在
+<br><span id="poweredby">Powered by .NET 8.0 on Kubernetes</span>
+
+</p>
+
+
+    </div>
+</div>
+
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8DZoAyJmInJHoSwqM1IbzdTJP4P421OIghlSiQ4wDb8nw2LVSnsQqZxdI6HXfmZP_YqMztgWNvQ30387Pcj3_DiGiHYCfgq8BhbPOlKe0fXls-pAhuQHXTKqEkKQu5VTKzRNwufUUGIBddZ1jcGaiGQ">
+    <script async="" src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/js"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-M95P3TTWJZ');
+</script>
+<script defer="" src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/hm.js.下载"></script>
+
+<div style="z-index: 998; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: none; flex-direction: column; align-items: center; justify-content: center">
+<div style="background: #fff;padding: 30px; margin: 30px; border-radius: 16px;">
+  <div style="width: 200px; height: 200px; background: rgba(255, 255, 255, 0.8); position: absolute; top: -100px; right: -100px; border-radius: 100px"></div>
+  <div style="text-align: center; font-size: 18px; margin-bottom: 10px;">点击右上角即可分享</div>
+  <img src="./log4j.properties配置文件及详解 - 情陌人灬已不在 - 博客园_files/35695-20230906145857937-1471873834.gif" alt="微信分享提示">
+</div>   
+    </div></body></html>
