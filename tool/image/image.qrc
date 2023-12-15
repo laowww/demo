@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/">
+        <file>image.png</file>
+        <file>banna/1.jpg</file>
+        <file>banna/2.jpg</file>
+        <file>banna/3.jpg</file>
+        <file>banna/4.jpg</file>
+        <file>banna/5.jpg</file>
+        <file>other/hover_blue.png</file>
+        <file>other/less_than.png</file>
+        <file>other/more_than.png</file>
+        <file>other/normal_gray.png</file>
+        <file>other/circle.png</file>
+        <file>other/close.png</file>
+        <file>other/center_cyan.png</file>
+        <file>close_hover.png</file>
+        <file>close_normal.png</file>
+        <file>left_arrow_hover.png</file>
+        <file>left_arrow_normal.png</file>
+        <file>left_arrow_pressed.png</file>
+        <file>max_hover.png</file>
+        <file>max_normal.png</file>
+        <file>min_hover.png</file>
+        <file>min_normal.png</file>
+        <file>normal_hover.png</file>
+        <file>normal_normal.png</file>
+        <file>unchecked.png</file>
+		<file>checked.png</file>
+		<file>right_arrow_hover.png</file>
+        <file>right_arrow_normal.png</file>
+        <file>right_arrow_pressed.png</file>
+        <file>other/star.png</file>
+        <file>other/half_star.png</file>
+        <file>other/splash.png</file>
+    </qresource>
+</RCC>

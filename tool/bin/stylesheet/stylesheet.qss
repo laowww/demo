@@ -1,0 +1,115 @@
+*
+{
+	color: rgb(222,222,222);
+}
+
+QWidget
+{
+	border: none;
+	background-color: rgb(61,61,61);
+}
+
+QWidget#wdt_title
+{
+	background-color: rgb(51,51,51);
+}
+
+QLabel#lb_title,
+QLabel#lb_icon
+{
+	font: bold 16pt;
+	background-color: rgb(51,51,51);
+}
+
+QToolButton
+{
+	font: 12pt;
+	background-color: rgb(51,51,51);
+}
+
+QToolButton:checked
+{
+	border: solid rgb(188,188,188);
+	border-width: 0px 0px 2px 0px;
+	background-color: rgb(116, 116, 116);
+}
+
+QPushButton#btn_close
+{
+	min-width: 20px;
+	min-height: 20px;
+	max-width: 20px;
+	max-height: 20px;
+	image: url(:/close_normal.png);
+	background-color: rgb(51,51,51);
+}
+
+QPushButton#btn_close:hover
+{
+	image: url(:/close_hover.png);
+}
+
+QPushButton#btn_min
+{
+	min-width: 20px;
+	min-height: 20px;
+	max-width: 20px;
+	max-height: 20px;
+	image: url(:/min_normal.png);
+	background-color: rgb(51,51,51);
+}
+
+QPushButton#btn_min:hover
+{
+	image: url(:/min_hover.png);
+}
+
+QPushButton#btn_max
+{
+	min-width: 20px;
+	min-height: 20px;
+	max-width: 20px;
+	max-height: 20px;
+	background-color: rgb(51,51,51);
+}
+
+QPushButton#btn_max[Max=false]
+{
+	image: url(:/normal_normal.png);
+}
+
+QPushButton#btn_max[Max=false]:hover
+{
+	image: url(:/normal_hover.png);
+}
+
+QPushButton#btn_max[Max=true]
+{
+	image: url(:/max_normal.png);
+}
+
+QPushButton#btn_max[Max=true]:hover
+{
+	image: url(:/max_hover.png);
+}
+
+QWidget#wdt_left
+{
+	border: 1px solid rgb(99, 99, 99);
+	background-color: rgb(60,60,60);
+}
+
+QWidget#wdt_left QToolButton:!checked
+{
+	background-color: rgb(60,60,60);
+}
+
+QListView::indicator:checked
+{
+	image: url(:/checked.png);
+}
+
+QListView::indicator:unchecked
+{
+	image: url(:/unchecked.png);
+}
