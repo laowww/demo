@@ -16,6 +16,12 @@
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <widget class="QScrollArea" name="scrollArea">
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>0</height>
+      </size>
+     </property>
      <property name="maximumSize">
       <size>
        <width>200</width>
@@ -41,7 +47,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <widget class="ListView" name="wdt_list"/>
-     <widget class="QWidget" name="page_2"/>
+     <widget class="TreeView" name="wdt_tree"/>
     </widget>
    </item>
   </layout>
@@ -51,6 +57,12 @@
    <class>ListView</class>
    <extends>QWidget</extends>
    <header>listview.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TreeView</class>
+   <extends>QWidget</extends>
+   <header>treeview.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

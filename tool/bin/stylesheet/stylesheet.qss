@@ -104,6 +104,13 @@ QWidget#wdt_left QToolButton:!checked
 	background-color: rgb(60,60,60);
 }
 
+QListView::item:selected,
+QListView::item:selected:!active
+{
+	color: rgb(222, 222, 222);
+	background-color: rgb(99, 99, 99);
+}
+
 QListView::indicator:checked
 {
 	image: url(:/checked.png);

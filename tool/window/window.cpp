@@ -10,12 +10,14 @@ Window::Window(QWidget *parent)
     ui->setupUi(this);
 
     init();
+    m_btnGroup.setExclusive(true);
+    connect(&m_btnGroup, SIGNAL(buttonClicked(QAbstractButton *)), this, SLOT(slot_pageChanged(QAbstractButton *)));
 }
 
 void Window::init()
 {
     QStringList names;
-    names<< "ListView";
+    names<< "ListView"<< "TreeView";
 
     for(int i = 0; i < names.size(); i++)
     {
@@ -28,9 +30,19 @@ void Window::init()
         pBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
         ui->verticalLayout->addWidget(pBtn);
-        m_btns.append(pBtn);
+        m_btnGroup.addButton(pBtn);
+        m_btnList.append(pBtn);
     }
 
     ui->verticalLayout->addStretch();
-    m_btns.at(0)->click();
+    m_btnList.at(0)->click();
+}
+
+void Window::slot_pageChanged(QAbstractButton *pBtn)
+{
+    int index = m_btnList.indexOf(static_cast<QToolButton *>(pBtn));
+    if(index != -1)
+    {
+        ui->stackedWidget->setCurrentIndex(index);
+    }
 }

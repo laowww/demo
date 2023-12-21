@@ -28,6 +28,7 @@ public:
     QListWidget *listWidget;
     QListView *listView;
     QListView *listView_2;
+    QListView *listView_3;
 
     void setupUi(QWidget *ListView)
     {
@@ -51,7 +52,12 @@ public:
         listView_2 = new QListView(ListView);
         listView_2->setObjectName(QString::fromUtf8("listView_2"));
 
-        gridLayout->addWidget(listView_2, 0, 2, 1, 1);
+        gridLayout->addWidget(listView_2, 1, 0, 1, 1);
+
+        listView_3 = new QListView(ListView);
+        listView_3->setObjectName(QString::fromUtf8("listView_3"));
+
+        gridLayout->addWidget(listView_3, 1, 1, 1, 1);
 
 
         retranslateUi(ListView);

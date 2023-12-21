@@ -1,6 +1,8 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
+#include <QButtonGroup>
+
 #include "framelesswindow.h"
 
 QT_BEGIN_NAMESPACE
@@ -26,5 +28,7 @@ private:
     bool m_bMax;
     bool m_bPress;
     QPoint m_pressPos;
+
+    QButtonGroup m_btnGroup;
 };
 #endif // WIDGET_H

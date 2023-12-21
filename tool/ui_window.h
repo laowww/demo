@@ -20,6 +20,7 @@
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 #include "listview.h"
+#include "treeview.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -32,7 +33,7 @@ public:
     QVBoxLayout *verticalLayout;
     QStackedWidget *stackedWidget;
     ListView *wdt_list;
-    QWidget *page_2;
+    TreeView *wdt_tree;
 
     void setupUi(QWidget *Window)
     {
@@ -43,6 +44,7 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         scrollArea = new QScrollArea(Window);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
+        scrollArea->setMinimumSize(QSize(200, 0));
         scrollArea->setMaximumSize(QSize(200, 16777215));
         scrollArea->setWidgetResizable(true);
         wdt_left = new QWidget();
@@ -59,9 +61,9 @@ public:
         wdt_list = new ListView();
         wdt_list->setObjectName(QString::fromUtf8("wdt_list"));
         stackedWidget->addWidget(wdt_list);
-        page_2 = new QWidget();
-        page_2->setObjectName(QString::fromUtf8("page_2"));
-        stackedWidget->addWidget(page_2);
+        wdt_tree = new TreeView();
+        wdt_tree->setObjectName(QString::fromUtf8("wdt_tree"));
+        stackedWidget->addWidget(wdt_tree);
 
         horizontalLayout->addWidget(stackedWidget);
 

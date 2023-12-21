@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QToolButton>
+#include <QButtonGroup>
 
 namespace Ui
 {
@@ -18,10 +19,14 @@ public:
 private:
     void init();
 
+private slots:
+    void slot_pageChanged(QAbstractButton *pBtn);
+
 private:
     Ui::Window *ui;
 
-    QList<QToolButton*> m_btns;
+    QButtonGroup m_btnGroup;
+    QList<QToolButton *> m_btnList;
 };
 
 #endif // WINDOW_H

@@ -12,6 +12,9 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
 
+    m_btnGroup.addButton(ui->tb_wdt);
+    m_btnGroup.setExclusive(true);
+
     connect(ui->btn_close, SIGNAL(clicked()), this, SLOT(slot_btn_close()));
     connect(ui->btn_min, SIGNAL(clicked()), this, SLOT(slot_btn_min()));
     connect(ui->btn_max, SIGNAL(clicked()), this, SLOT(slot_btn_max()));
