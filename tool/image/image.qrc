@@ -26,6 +26,9 @@
         <file>normal_normal.png</file>
         <file>unchecked.png</file>
 		<file>checked.png</file>
+		<file>unfold.png</file>
+		<file>fold.png</file>
+		<file>check_indeterminate.png</file>
 		<file>right_arrow_hover.png</file>
         <file>right_arrow_normal.png</file>
         <file>right_arrow_pressed.png</file>

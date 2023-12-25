@@ -120,3 +120,33 @@ QListView::indicator:unchecked
 {
 	image: url(:/unchecked.png);
 }
+
+QListView::indicator:indeterminate
+{
+	image: url(:/check_indeterminate.png);
+}
+
+QTreeView::branch:closed:has-children
+{
+	image: url(:/unfold.png);
+}
+
+QTreeView::branch:open:has-children
+{
+	image: url(:/fold.png);
+}
+
+QTreeView::indicator:checked
+{
+	image: url(:/checked.png);
+}
+
+QTreeView::indicator:unchecked
+{
+	image: url(:/unchecked.png);
+}
+
+QTreeView::indicator:indeterminate
+{
+	image: url(:/check_indeterminate.png);
+}
