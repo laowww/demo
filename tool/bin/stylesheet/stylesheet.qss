@@ -157,3 +157,8 @@ QTreeView::indicator:indeterminate
 {
 	image: url(:/check_indeterminate.png);
 }
+
+QTableView QHeaderView::section
+{
+	background-color: rgb(51, 51, 51);
+}
