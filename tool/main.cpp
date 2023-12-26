@@ -1,4 +1,5 @@
 #include "widget.h"
+#include "toolutil.h"
 
 #include <QFile>
 #include <QDebug>
@@ -35,11 +36,11 @@ int main(int argc, char *argv[])
 
     setCodec();
     loadQss();
+    initSql();
 
     Widget w;
     w.show();
 
     splash.finish(&w);
-
     return a.exec();
 }

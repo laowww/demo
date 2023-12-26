@@ -1,6 +1,4 @@
-QT       += core gui \
-    widgets \
-    widgets
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -23,6 +21,7 @@ SOURCES += \
 
 HEADERS += \
     framelesswindow.h \
+    toolutil.h \
     widget.h
 
 FORMS += \

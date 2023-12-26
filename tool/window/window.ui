@@ -48,6 +48,7 @@
     <widget class="QStackedWidget" name="stackedWidget">
      <widget class="ListView" name="wdt_list"/>
      <widget class="TreeView" name="wdt_tree"/>
+     <widget class="TableView" name="wdt_table"/>
     </widget>
    </item>
   </layout>
@@ -63,6 +64,12 @@
    <class>TreeView</class>
    <extends>QWidget</extends>
    <header>treeview.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TableView</class>
+   <extends>QWidget</extends>
+   <header>tableview.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

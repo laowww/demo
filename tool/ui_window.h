@@ -20,6 +20,7 @@
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 #include "listview.h"
+#include "tableview.h"
 #include "treeview.h"
 
 QT_BEGIN_NAMESPACE
@@ -34,6 +35,7 @@ public:
     QStackedWidget *stackedWidget;
     ListView *wdt_list;
     TreeView *wdt_tree;
+    TableView *wdt_table;
 
     void setupUi(QWidget *Window)
     {
@@ -64,6 +66,9 @@ public:
         wdt_tree = new TreeView();
         wdt_tree->setObjectName(QString::fromUtf8("wdt_tree"));
         stackedWidget->addWidget(wdt_tree);
+        wdt_table = new TableView();
+        wdt_table->setObjectName(QString::fromUtf8("wdt_table"));
+        stackedWidget->addWidget(wdt_table);
 
         horizontalLayout->addWidget(stackedWidget);
 

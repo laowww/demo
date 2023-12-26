@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TableView</class>
+ <widget class="QWidget" name="TableView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>613</width>
+    <height>426</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>30</y>
+     <width>446</width>
+     <height>79</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>年龄:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>性别:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QLineEdit" name="le_account"/>
+    </item>
+    <item row="0" column="6">
+     <widget class="QLineEdit" name="le_password"/>
+    </item>
+    <item row="1" column="2">
+     <widget class="QSpinBox" name="sb_age"/>
+    </item>
+    <item row="1" column="5">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>部门:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>密码:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>账号:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="QComboBox" name="cb_sex">
+      <item>
+       <property name="text">
+        <string>男</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>女</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>姓名:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLineEdit" name="le_name"/>
+    </item>
+    <item row="1" column="6">
+     <widget class="QComboBox" name="cb_dept"/>
+    </item>
+    <item row="2" column="6">
+     <widget class="QPushButton" name="btn_insert">
+      <property name="text">
+       <string>添加</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
