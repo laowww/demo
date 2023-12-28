@@ -1,8 +1,9 @@
-#ifndef TABLEVIEW_H
+﻿#ifndef TABLEVIEW_H
 #define TABLEVIEW_H
 
 #include <QWidget>
 #include <QMetaType>
+#include <QItemDelegate>
 #include <QStandardItemModel>
 
 namespace Ui {
@@ -18,6 +19,24 @@ struct st_data
     QString age;
 };
 Q_DECLARE_METATYPE(st_data)
+
+class ItemDelegate : public QItemDelegate
+{
+    Q_OBJECT
+public:
+    ItemDelegate(QObject *parent = nullptr);
+
+public:
+    QWidget* createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+
+    void setEditorData(QWidget *editor, const QModelIndex &index) const;
+
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
+
+    bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+};
 
 class TableView : public QWidget
 {
@@ -62,6 +81,7 @@ private:
     Ui::TableView *ui;
 
     int m_num;
+    ItemDelegate *m_pItemDelegate;
     QStandardItemModel *m_pModel;
 };
 

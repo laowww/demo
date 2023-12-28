@@ -1,4 +1,4 @@
-#include "widget.h"
+﻿#include "widget.h"
 #include "toolutil.h"
 
 #include <QFile>
@@ -20,7 +20,7 @@ void loadQss()
 
 void setCodec()
 {
-    QTextCodec *pCodec = QTextCodec::codecForName("utf-8");
+    QTextCodec *pCodec = QTextCodec::codecForName("system");
     QTextCodec::setCodecForCStrings(pCodec);
     QTextCodec::setCodecForLocale(pCodec);
     QTextCodec::setCodecForTr(pCodec);

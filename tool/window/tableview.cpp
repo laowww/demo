@@ -1,4 +1,4 @@
-#include <QDebug>
+﻿#include <QDebug>
 #include <QUuid>
 #include <QSqlQuery>
 #include <QSqlError>
@@ -6,6 +6,9 @@
 #include <QScrollArea>
 #include <QCryptographicHash>
 #include <QtConcurrentRun>
+#include <QMessageBox>
+#include <QMouseEvent>
+#include <QMenu>
 
 #include "tableview.h"
 #include "ui_tableview.h"
@@ -13,7 +16,7 @@
 TableView::TableView(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::TableView)
-    , m_num(20)
+    , m_num(200)
 {
     ui->setupUi(this);
 
@@ -47,6 +50,9 @@ void TableView::init()
     ui->tableView->verticalHeader()->hide();
     ui->tableView->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     ui->tableView->horizontalHeader()->setStretchLastSection(true);
+
+    m_pItemDelegate = new ItemDelegate(this);
+    ui->tableView->setItemDelegate(m_pItemDelegate);
 
     loadData();
 }
@@ -173,4 +179,90 @@ void TableView::slot_dataList(QList<st_data> dataList)
         insertItem(i, eDept, data.dept);
         i++;
     }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+ItemDelegate::ItemDelegate(QObject *parent)
+    : QItemDelegate(parent)
+{
+}
+
+QWidget *ItemDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    Q_UNUSED(option)
+
+    int column = index.column();
+    if(column == 2)
+    {
+        QComboBox *pComboBox = new QComboBox(parent);
+        pComboBox->addItems(QStringList()<< "男"<< "女");
+
+        return pComboBox;
+    }
+
+    if(column == 3)
+    {
+        QSpinBox *pSpinBox = new QSpinBox(parent);
+        pSpinBox->setRange(0, 100);
+
+        return pSpinBox;
+    }
+
+    if(column == 4)
+    {
+        QComboBox *pComboBox = new QComboBox(parent);
+        pComboBox->addItems(QStringList()<< "C++"<< "JAVA"<< "PYTHON");
+
+        return pComboBox;
+    }
+
+    return NULL;
+}
+
+void ItemDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
+{
+    int column = index.column();
+    if(column == 2)
+    {
+        QComboBox *pComboBox = static_cast<QComboBox *>(editor);
+        pComboBox->setCurrentIndex(pComboBox->findText(index.data().toString()));
+    }
+
+    if(column == 3)
+    {
+        QSpinBox *pSpinBox = static_cast<QSpinBox *>(editor);
+        pSpinBox->setValue(index.data().toInt());
+    }
+
+    if(column == 4)
+    {
+        QComboBox *pComboBox = static_cast<QComboBox *>(editor);
+        pComboBox->setCurrentIndex(pComboBox->findText(index.data().toString()));
+    }
+}
+
+void ItemDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    editor->setGeometry(option.rect);
+}
+
+void ItemDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
+{
+    QItemDelegate::setModelData(editor, model, index);
+}
+
+bool ItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    QMouseEvent *pMouseEvent = static_cast<QMouseEvent*>(event);
+    if(pMouseEvent->button() == Qt::LeftButton
+       && pMouseEvent->type() == QEvent::MouseButtonPress)
+    {
+        QMenu menu;
+        menu.addAction("删除");
+        menu.exec(pMouseEvent->globalPos());
+
+        return true;
+    }
+
+    return QItemDelegate::editorEvent(event, model, option, index);
 }
