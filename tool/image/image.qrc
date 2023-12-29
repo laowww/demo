@@ -1,11 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>image.png</file>
-        <file>banna/1.jpg</file>
-        <file>banna/2.jpg</file>
-        <file>banna/3.jpg</file>
-        <file>banna/4.jpg</file>
-        <file>banna/5.jpg</file>
         <file>other/hover_blue.png</file>
         <file>other/less_than.png</file>
         <file>other/more_than.png</file>
@@ -28,6 +23,7 @@
 		<file>checked.png</file>
 		<file>unfold.png</file>
 		<file>fold.png</file>
+		<file>search.png</file>
 		<file>check_indeterminate.png</file>
 		<file>right_arrow_hover.png</file>
         <file>right_arrow_normal.png</file>

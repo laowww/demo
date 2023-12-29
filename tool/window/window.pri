@@ -15,8 +15,8 @@ SOURCES += \
     $$PWD/window.cpp
 
 FORMS += \
-    $$PWD/listview.ui \
-    $$PWD/pagewidget.ui \
-    $$PWD/tableview.ui \
-    $$PWD/treeview.ui \
-    $$PWD/window.ui
+    $$PWD/ui/listview.ui \
+    $$PWD/ui/pagewidget.ui \
+    $$PWD/ui/tableview.ui \
+    $$PWD/ui/treeview.ui \
+    $$PWD/ui/window.ui

@@ -1,3 +1,7 @@
+﻿#include <QLabel>
+#include <QDebug>
+
+#include "pinyin.h"
 #include "treeview.h"
 #include "ui_treeview.h"
 
@@ -6,6 +10,18 @@ TreeView::TreeView(QWidget *parent) :
     ui(new Ui::TreeView)
 {
     ui->setupUi(this);
+
+    QLabel *pLabel = new QLabel;
+    QHBoxLayout *pLayout = new QHBoxLayout;
+    pLabel->setPixmap(QPixmap(":/search.png").scaledToHeight(15));
+    pLayout->addStretch();
+    pLayout->setMargin(5);
+    pLayout->addWidget(pLabel);
+    ui->lineEdit->setLayout(pLayout);
+    ui->lineEdit->setPlaceholderText("过滤");
+    ui->lineEdit->setTextMargins(0, 0, 30, 0);
+
+    connect(ui->lineEdit, SIGNAL(textChanged(const QString &)), this, SLOT(slot_search(const QString &)));
 
     initTreeView();
     initTreeWidget();
@@ -65,4 +81,13 @@ void TreeView::initTreeWidget()
     }
 
     ui->treeWidget->expandAll();
+}
+
+void TreeView::slot_search(const QString &text)
+{
+    QString firstStr;
+    QString fullStr;
+    getComPingyinForStr(text, firstStr, fullStr);
+
+    qDebug()<< firstStr<< fullStr;
 }

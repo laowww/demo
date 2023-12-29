@@ -17,15 +17,17 @@ include(./window/window.pri)
 SOURCES += \
     framelesswindow.cpp \
     main.cpp \
+    pinyin.cpp \
     widget.cpp
 
 HEADERS += \
     framelesswindow.h \
+    pinyin.h \
     toolutil.h \
     widget.h
 
 FORMS += \
-    widget.ui
+    ui/widget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -34,8 +36,3 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     ./image/image.qrc
-
-msvc{
-    QMAKE_CFLAGS += /utf-8
-    QMAKE_CXXFLAGS += /utf-8
-}

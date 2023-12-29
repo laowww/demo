@@ -254,7 +254,7 @@ void ItemDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, cons
 bool ItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     QMouseEvent *pMouseEvent = static_cast<QMouseEvent*>(event);
-    if(pMouseEvent->button() == Qt::LeftButton
+    if(pMouseEvent->button() == Qt::RightButton
        && pMouseEvent->type() == QEvent::MouseButtonPress)
     {
         QMenu menu;

@@ -1,4 +1,4 @@
-#ifndef TREEVIEW_H
+﻿#ifndef TREEVIEW_H
 #define TREEVIEW_H
 
 #include <QWidget>
@@ -20,6 +20,9 @@ public:
 private:
     void initTreeView();
     void initTreeWidget();
+
+private slots:
+    void slot_search(const QString &);
 
 private:
     Ui::TreeView *ui;
