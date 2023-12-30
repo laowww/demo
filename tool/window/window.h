@@ -1,4 +1,4 @@
-#ifndef WINDOW_H
+﻿#ifndef WINDOW_H
 #define WINDOW_H
 
 #include <QWidget>
@@ -14,7 +14,7 @@ class Window : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Window(QWidget *parent = nullptr);
+    explicit Window(QWidget *parent = NULL);
 
 private:
     void init();

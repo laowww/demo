@@ -20,7 +20,7 @@ TableView::TableView(QWidget *parent)
 {
     ui->setupUi(this);
 
-    qRegisterMetaType<QList<st_data>>("QList<st_data>");
+    qRegisterMetaType<QList<st_data> >("QList<st_data>");
     connect(ui->btn_insert, SIGNAL(clicked()), this, SLOT(slot_btn_clicked_insert()));
     connect(ui->wdt_page, SIGNAL(sign_pageChanged(int)), this, SLOT(slot_pageChanged(int)));
     connect(this, SIGNAL(sign_data(QList<st_data>)), this, SLOT(slot_dataList(QList<st_data>)), Qt::QueuedConnection);

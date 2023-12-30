@@ -1,4 +1,4 @@
-#ifndef LISTVIEW_H
+﻿#ifndef LISTVIEW_H
 #define LISTVIEW_H
 
 #include <QWidget>
@@ -16,9 +16,9 @@ class ListView;
 class CloseButtonDelegate : public QStyledItemDelegate
 {
 public:
-    CloseButtonDelegate(QObject* parent = nullptr) : QStyledItemDelegate(parent) {}
+    CloseButtonDelegate(QObject* parent = NULL) : QStyledItemDelegate(parent) {}
 
-    void paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const override
+    void paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const
     {
         QStyledItemDelegate::paint(painter, option, index);
 
@@ -27,7 +27,7 @@ public:
         painter->drawImage(closeButtonRect, QImage(":/other/close.png"));
     }
 
-    bool editorEvent(QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem& option, const QModelIndex& index) override
+    bool editorEvent(QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem& option, const QModelIndex& index)
     {
         QMouseEvent* mouseEvent = static_cast<QMouseEvent*>(event);
         // 判断点击是否在关闭按钮内
@@ -70,7 +70,7 @@ class ListView : public QWidget
     Q_OBJECT
 
 public:
-    explicit ListView(QWidget *parent = nullptr);
+    explicit ListView(QWidget *parent = NULL);
     ~ListView();
 
 private:

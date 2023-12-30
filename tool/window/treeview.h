@@ -14,7 +14,7 @@ class TreeView : public QWidget
     Q_OBJECT
 
 public:
-    explicit TreeView(QWidget *parent = nullptr);
+    explicit TreeView(QWidget *parent = NULL);
     ~TreeView();
 
 private:

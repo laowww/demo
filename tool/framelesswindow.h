@@ -1,4 +1,4 @@
-#ifndef FRAMELESSWINDOW_H
+﻿#ifndef FRAMELESSWINDOW_H
 #define FRAMELESSWINDOW_H
 
 #include <QWidget>
@@ -7,7 +7,7 @@ class FrameLessWindow : public QWidget
 {
     Q_OBJECT
 public:
-    FrameLessWindow(QWidget *parent = nullptr);
+    FrameLessWindow(QWidget *parent = NULL);
 
 protected:
     void setMoveWidget(QWidget *pWdt);

@@ -1,4 +1,4 @@
-#ifndef PAGEWIDGET_H
+﻿#ifndef PAGEWIDGET_H
 #define PAGEWIDGET_H
 
 #include <QWidget>
@@ -12,7 +12,7 @@ class PageWidget : public QWidget
     Q_OBJECT
 
 public:
-    PageWidget(QWidget *parent = nullptr);
+    PageWidget(QWidget *parent = NULL);
     ~PageWidget();
 
 public:

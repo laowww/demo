@@ -20,7 +20,7 @@ void loadQss()
 
 void setCodec()
 {
-    QTextCodec *pCodec = QTextCodec::codecForName("system");
+    QTextCodec *pCodec = QTextCodec::codecForName("utf-8");
     QTextCodec::setCodecForCStrings(pCodec);
     QTextCodec::setCodecForLocale(pCodec);
     QTextCodec::setCodecForTr(pCodec);

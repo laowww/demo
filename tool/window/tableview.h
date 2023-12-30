@@ -24,7 +24,7 @@ class ItemDelegate : public QItemDelegate
 {
     Q_OBJECT
 public:
-    ItemDelegate(QObject *parent = nullptr);
+    ItemDelegate(QObject *parent = NULL);
 
 public:
     QWidget* createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
@@ -33,9 +33,9 @@ public:
 
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
 
-    bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index);
 };
 
 class TableView : public QWidget
@@ -53,7 +53,7 @@ class TableView : public QWidget
     };
 
 public:
-    explicit TableView(QWidget *parent = nullptr);
+    explicit TableView(QWidget *parent = NULL);
     ~TableView();
 
 private:

@@ -1,4 +1,4 @@
-#ifndef WIDGET_H
+﻿#ifndef WIDGET_H
 #define WIDGET_H
 
 #include <QButtonGroup>
@@ -14,7 +14,7 @@ class Widget : public FrameLessWindow
     Q_OBJECT
 
 public:
-    Widget(QWidget *parent = nullptr);
+    Widget(QWidget *parent = NULL);
     ~Widget();
 
 private slots:
