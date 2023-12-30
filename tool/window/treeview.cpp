@@ -1,7 +1,5 @@
 ﻿#include <QLabel>
-#include <QDebug>
 
-#include "pinyin.h"
 #include "treeview.h"
 #include "ui_treeview.h"
 
@@ -35,7 +33,10 @@ TreeView::~TreeView()
 void TreeView::initTreeView()
 {
     m_pModel = new QStandardItemModel(this);
-    ui->treeView->setModel(m_pModel);
+    m_sortModel = new PinyinProxyModel(this);
+    m_sortModel->setSourceModel(m_pModel);
+
+    ui->treeView->setModel(m_sortModel);
     ui->treeView->header()->setVisible(false);
     ui->treeView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
@@ -47,9 +48,11 @@ void TreeView::initTreeView()
         pItem->setFont(font);
         m_pModel->appendRow(pItem);
 
-        for(int j = 0; j < 3; j++)
+        QStringList nameList;
+        nameList<< "王大"<< "张三"<< "李四"<< "王五"<< "赵四"<< "哈哈哈";
+        for(int j = 0; j < nameList.size(); j++)
         {
-            QStandardItem *pChild = new QStandardItem("item_child");
+            QStandardItem *pChild = new QStandardItem(nameList.at(j));
             pChild->setFont(font);
             pItem->appendRow(pChild);
         }
@@ -85,9 +88,5 @@ void TreeView::initTreeWidget()
 
 void TreeView::slot_search(const QString &text)
 {
-    QString firstStr;
-    QString fullStr;
-    getComPingyinForStr(text, firstStr, fullStr);
-
-    qDebug()<< firstStr<< fullStr;
+    m_sortModel->filterPinyin(text);
 }
