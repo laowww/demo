@@ -1757,7 +1757,6 @@ hanziTableS hanziTables[g_length_hanziTables] =
 };
 
 
-#include <QDebug>
 int getComPingyinForStr(const QString & inStr, QString & outFrist_py, QString & outFull_py)
 {
     // --- 条件返回
