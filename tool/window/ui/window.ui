@@ -49,6 +49,7 @@
      <widget class="ListView" name="wdt_list"/>
      <widget class="TreeView" name="wdt_tree"/>
      <widget class="TableView" name="wdt_table"/>
+     <widget class="PieChart" name="wdt_pie"/>
     </widget>
    </item>
   </layout>
@@ -70,6 +71,12 @@
    <class>TableView</class>
    <extends>QWidget</extends>
    <header>tableview.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PieChart</class>
+   <extends>QWidget</extends>
+   <header>piechart.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

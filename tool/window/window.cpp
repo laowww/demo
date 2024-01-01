@@ -1,4 +1,4 @@
-#include <QSpacerItem>
+﻿#include <QSpacerItem>
 
 #include "window.h"
 #include "ui_window.h"
@@ -17,7 +17,7 @@ Window::Window(QWidget *parent)
 void Window::init()
 {
     QStringList names;
-    names<< "ListView"<< "TreeView"<< "TableView";
+    names<< "ListView"<< "TreeView"<< "TableView"<< "PieChart";
 
     for(int i = 0; i < names.size(); i++)
     {

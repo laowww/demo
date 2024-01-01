@@ -13,6 +13,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 DESTDIR = ./bin
 
 include(./window/window.pri)
+include(./qcustomplot/qcustomplot.prf)
 
 SOURCES += \
     framelesswindow.cpp \
