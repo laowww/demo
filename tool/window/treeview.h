@@ -40,7 +40,7 @@ protected:
             {
                 QString sx;
                 QString py;
-                getComPingyinForStr(text, sx, py);
+                Pinyin::getComPingyinForStr(text, sx, py);
 
                 if(sx.contains(m_text) || py.contains(m_text))
                 {

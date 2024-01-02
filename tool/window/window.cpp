@@ -17,7 +17,7 @@ Window::Window(QWidget *parent)
 void Window::init()
 {
     QStringList names;
-    names<< "ListView"<< "TreeView"<< "TableView"<< "PieChart";
+    names<< "ListView"<< "TreeView"<< "TableView"<< "PieChart"<< "LineChart";
 
     for(int i = 0; i < names.size(); i++)
     {

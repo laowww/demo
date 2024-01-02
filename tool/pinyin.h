@@ -21,7 +21,8 @@
        getNamePingyin()      => 100人/ms
 7. 使用方法：可以直接看本文件（.h文件）的注释 或 进入详情页面开，见第二条的网址
 */
-#pragma once
+#ifndef PINYIN_H
+#define PINYIN_H
 
 #include <qstring.h>
 #include <qstringlist.h>
@@ -35,6 +36,7 @@
 */
 #pragma execution_character_set("utf-8") //
 
+namespace Pinyin {
 // 汉字-拼音
 struct hanziTableS
 {
@@ -157,3 +159,5 @@ int getAllPingyinForWord(const QString& inWord, QStringList& outFrist_py, QStrin
    str = getNoRepeatPingyinForWord("石"); // str => "shi"
 */
 QString getNoRepeatPingyinForWord(const QString& inWord);//ok
+}
+#endif

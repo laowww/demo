@@ -5,6 +5,7 @@
 #define g_length_hanziTables 411
 
 
+namespace Pinyin {
 /*
 0. 姓氏特殊读音(包括：特殊、非特殊、复姓读音)
 1. 可以自己添加
@@ -2060,4 +2061,4 @@ QString getNoRepeatPingyinForWord(const QString& inWord)
     // ----- 返回结果
     return outPingyin;
 }
-
+}
