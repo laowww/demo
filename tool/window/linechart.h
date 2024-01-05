@@ -1,4 +1,4 @@
-#ifndef LINECHART_H
+﻿#ifndef LINECHART_H
 #define LINECHART_H
 
 #include <QWidget>
@@ -14,6 +14,9 @@ class LineChart : public QWidget
 public:
     explicit LineChart(QWidget *parent = nullptr);
     ~LineChart();
+
+private:
+    void init();
 
 private:
     Ui::LineChart *ui;
